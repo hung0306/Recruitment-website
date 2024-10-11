@@ -1,5 +1,5 @@
-// const API_DOMAIN = "http://localhost:3000/";
-const API_DOMAIN = "https://apicv-q22a.onrender.com/";
+const API_DOMAIN = "http://localhost:3000/";
+// const API_DOMAIN = "https://apicv-q22a.onrender.com/";
 export const get = async (path) => {
     const response = await fetch(API_DOMAIN + path)
     const result = await response.json()

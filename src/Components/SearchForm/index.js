@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { getListCity } from '../../services/cityService';
 import { useNavigate } from 'react-router-dom';
 import "./searchform.scss";
-import { SearchOutlined} from "@ant-design/icons"
+import { SearchOutlined } from "@ant-design/icons";
+import { IoLocationOutline } from "react-icons/io5";
+
 
 function SearchForm() {
     const navigate = useNavigate()
@@ -37,7 +39,7 @@ function SearchForm() {
     }
     return (
         <>
-            <h1 className="title">1000+ Việc làm cho IT</h1>
+            <h1 className="title">Tìm việc làm nhanh 24h, việc làm mới nhất trên toàn quốc.</h1>
 
             {city && (
 
@@ -51,7 +53,14 @@ function SearchForm() {
                             <Form.Item name="city"
 
                             >
-                                <Select options={city} placeholder="Chọn thành phố" />
+                                <Select
+                                    options={city}
+                                    placeholder={
+                                        <>
+                                            <IoLocationOutline /> Địa điểm
+                                        </>
+                                    }
+                                />
 
                             </Form.Item>
                         </Col>
@@ -62,7 +71,7 @@ function SearchForm() {
                             <Form.Item name="keyword"
 
                             >
-                                <Input placeholder='nhập ngôn ngữ cần tìm' />
+                                <Input placeholder='Vị trí tuyển dụng' />
 
                             </Form.Item>
                         </Col>
@@ -71,8 +80,8 @@ function SearchForm() {
                             <Form.Item
 
                             >
-                                <Button type="primary" htmlType="submit">
-                                  <SearchOutlined/> Tìm kiếm
+                                <Button type="primary"  style={{ backgroundColor: "#00b14f"}} htmlType="submit">
+                                    <SearchOutlined /> Tìm kiếm
                                 </Button>
                             </Form.Item>
                         </Col>

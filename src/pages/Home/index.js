@@ -1,4 +1,5 @@
 import SearcchForm from "../../Components/SearchForm";
+import "./home.scss"
 
 
 
@@ -9,9 +10,11 @@ function Home() {
   return (
     <>
       <Goback />
-
+      <div className="bgr">
       <SearcchForm />
       <SkillList />
+      </div>
+     
       <CompanyList />
     </>
   )

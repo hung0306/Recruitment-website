@@ -13,18 +13,23 @@ export const login = async (email, password) => {
     if (password !== "") {
         pass = `&password=${password}`;
     }
-    const result = await get(`companys?email=${email}${pass}`);
+    const result = await get(`account?email=${email}${pass}`);
     return result
 
 
 }
 
 export const checkExist = async (type, value) => {
-    const result = await get(`companys?${type}=${value}`);
+    const result = await get(`account?${type}=${value}`);
     return result
 }
 
 export const creatCompany = async (options) => {
+    const result = await post(`account`, options);
+    return result
+}
+
+export const creatCompany1 = async (options) => {
     const result = await post(`companys`, options);
     return result
 }

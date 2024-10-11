@@ -1,11 +1,20 @@
 .listcompany {
     margin-top: 40px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
 
     &__company {
 
         font-size: 18x;
         font-weight: 500;
+        font-size: 18px;
+       
     }
+    &__tag{
+        font-size: 40px;
+        &:hover{
+            color:#00b14f
+        }
+    }
+  
 }

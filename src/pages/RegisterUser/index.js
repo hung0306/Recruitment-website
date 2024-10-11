@@ -3,6 +3,7 @@ import { generateToken } from '../../helpers/generateToken';
 import * as company from "../../services/companyService";
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import { createInforUser } from '../../services/userService';
 
 
 function Register() {
@@ -16,11 +17,12 @@ function Register() {
     // console.log(values);
     values.token = generateToken();
     const newValue={
-      ...values,
-      role: "admin"
+        ...values,
+        role: "user"
 
-  };
-  
+    };
+    console.log(newValue);
+    
     const checkExistEmail = await company.checkExist("email", newValue.email);
     const checkExistPhone = await company.checkExist("phone", newValue.phone)
     if (checkExistEmail.length > 0) {
@@ -37,15 +39,28 @@ function Register() {
         content: 'Số điện thoại đã tồn tại',
       });
     } else {
+     
       const result = await company.creatCompany(newValue);
-      const result1 = await company.creatCompany1(newValue);
-      console.log(result1);
+    
       
+   
       if (result) {
-        setXoay(false)
-        alert("Đăng ký thành công!")
-        navigate("/login")
+     
+     
+        
+        if (result) {
+          setXoay(false);
+          alert("Đăng ký thành công!");
+          navigate("/login");
+        } else {
+          setXoay(false);
+          messageApi.open({
+            type: 'error',
+            content: 'Đăng ký không thành công, vui lòng thử lại!',
+          });
+        }
       }
+    
     }
 
   }
@@ -58,14 +73,16 @@ function Register() {
           <Spin spinning={xoay} tip="vui lòng chờ...">
             <Card title="Đăng ký tài khoản">
               <Form onFinish={onFinish} layout='vertical'>
-                <Form.Item label="Tên công ty" name="companyName" rules={[
+              <Form.Item label="Họ tên" name="nameUser" rules={[
                   {
-                    required: true,
-                    message: 'Vui lòng nhập tên công ty!',
+                    required: true
+                   
                   },
                 ]}>
                   <Input />
                 </Form.Item>
+                
+                
 
                 <Form.Item label="Email" name="email" rules={[
                   {

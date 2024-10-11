@@ -19,6 +19,14 @@ import CreateJob from "../pages/JobManage/CreateJob";
 import JobDetailAdmin from "../pages/JobManage/JobDetailAdmin";
 import CvManage from "../pages/CvManage";
 import CvDetail from "../pages/CvManage/CvDetail";
+import RegisterUser from "../pages/RegisterUser";
+import Profile from "../pages/Profile"
+import LayoutUser from "../layoutUser";
+import CreatedCV from "../pages/CreatedCV";
+import JobApply from "../pages/JobApply";
+import InforUser from "../pages/InforUser";
+
+
 
 
 
@@ -41,6 +49,12 @@ export const routes = [
             {
                 path: "login",
                 element: <Login />
+
+
+            },
+            {
+                path: "registerUser",
+                element: <RegisterUser />
 
 
             },
@@ -77,6 +91,18 @@ export const routes = [
             {
                 path: "company/:id",
                 element: <CompanyDetail />
+            },
+            {
+                element:<PrivateRouter/>,
+                children:[
+                    {
+                        
+                            path:"/profile",
+                            element: <InforUser/>
+                        
+                     
+                    }
+                ]
             }
 
 
@@ -127,7 +153,8 @@ export const routes = [
 
                 ]
 
-            }
+            },
+           
 
         ]
 
