@@ -1,7 +1,7 @@
 import { del, get, patch, post } from "../utils/request";
 
 export const createCv = async (option) => {
-    const result = await post(`cvs`, option);
+    const result = await post(`cv`, option);
     return result;
 }
 export const getListCv = async (id) => {
@@ -19,5 +19,20 @@ export const deleteCv = async (id) => {
 
 export const changeSttCv = async (id, options) => {
     const result = await patch(`cvs/${id}`, options);
+    return result;
+}
+
+
+export const getListCvUser = async (id) => {
+    const result = await get(`cv?idUser=${id}`);
+    return result;
+}
+
+export const getDetailCvUser = async (id) => {
+    const result = await get(`cv/${id}`);
+    return result;
+}
+export const editCvUser = async (id, options) => {
+    const result = await patch(`cv/${id}`, options);
     return result;
 }

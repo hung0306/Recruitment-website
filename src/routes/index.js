@@ -25,6 +25,12 @@ import LayoutUser from "../layoutUser";
 import CreatedCV from "../pages/CreatedCV";
 import JobApply from "../pages/JobApply";
 import InforUser from "../pages/InforUser";
+import CvListUser from "../pages/CvListUser";
+import Templatecv from "../pages/CreatedCV/templatecv";
+import CreateCV1 from "../pages/CreatedCV/cv1";
+import CreateCV2 from "../pages/CreatedCV/cv2";
+import EditCvUser from "../pages/CvListUser/editCvUser";
+
 
 
 
@@ -101,7 +107,40 @@ export const routes = [
                             element: <InforUser/>
                         
                      
-                    }
+                    },
+                    {
+                        
+                        path:"/create-CV1",
+                        element: <CreateCV1/>
+                    
+                 
+                },
+                {
+                        
+                    path:"/create-CV2",
+                    element: <CreateCV2/>
+                
+             
+            },
+                {
+                    path:"/template",
+                    element:<Templatecv/>
+
+                },
+                {
+                        
+                    path:"/manager-Cv-user",
+                    element: <CvListUser/>
+             
+            },
+
+            {
+                        
+                path:"/editCvUser/:id",
+                element: <EditCvUser/>
+         
+        },
+
                 ]
             }
 

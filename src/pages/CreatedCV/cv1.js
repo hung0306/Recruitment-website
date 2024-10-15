@@ -29,7 +29,7 @@ import { createCv } from '../../services/cvService';
 const { Content } = Layout;
 const { Title } = Typography;
 
-function CreateCV() {
+function CreateCV1() {
   const [form] = Form.useForm();
   const idUser = getCookie('id');
 
@@ -721,4 +721,4 @@ function CreateCV() {
   );
 }
 
-export default CreateCV;
+export default CreateCV1;

@@ -24,28 +24,29 @@ import {
 } from '@ant-design/icons';
 import { getCookie } from '../../helpers/cookies';
 import { getDetailUser } from '../../services/userService';
-import { createCv } from '../../services/cvService';
+import { editCvUser, getDetailCvUser } from '../../services/cvService';
+import { useParams } from 'react-router-dom';
+
 
 const { Content } = Layout;
 const { Title } = Typography;
 
-function CreateCV() {
+function EditCvUser() {
   const [form] = Form.useForm();
+  const params = useParams()
   const idUser = getCookie('id');
 
   const [info, setInfo] = useState();
   const [avatar, setAvatar] = useState(null); 
-  const [imageName, setImageName] = useState(''); 
+  
 
   useEffect(() => {
     const fetchApi = async () => {
      
-        const response = await getDetailUser(idUser);
+        const response = await getDetailCvUser(params.id);
         if (response) {
           setInfo(response);
-          if (response.avatarUrl) {
-            setAvatar(response.avatarUrl);
-          }
+         
         }
     
     };
@@ -56,50 +57,22 @@ function CreateCV() {
 
   const onFinish = async (values) => {
    
-    const data = { ...values, avatar: imageName, idUser :idUser  };
+    
    
-      const result = await createCv(data);
-      console.log(result);
+      const result = await editCvUser(values);
+    
       
       if (result) {
         message.success('CV created successfully');
        
-        form.resetFields();
-        setAvatar(null);
-        setImageName('');
+      
       } else {
         message.error('Failed to create CV');
       }
     
   };
 
-  const handleUpload = (file) => {
-  
-    const isImage = file.type.startsWith('image/');
-    if (!isImage) {
-      message.error('You can only upload image files!');
-      return false;
-    }
-
-    // Optionally, validate file size (e.g., less than 2MB)
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error('Image must be smaller than 2MB!');
-      return false;
-    }
-
-    // Read the file and set the avatar preview
-    const reader = new FileReader();
-    reader.onload = () => {
-      setAvatar(reader.result);
-    };
-    reader.readAsDataURL(file);
-  
-    setImageName(file.name);
-
-    
-    return false;
-  };
+ 
 
   return (
     <div className="container" style={{ padding: '24px' }}>
@@ -119,31 +92,7 @@ function CreateCV() {
                     <div style={{ textAlign: 'center' }}>
                       {/* Avatar Upload */}
                       <Form.Item name="avatar">
-                        <Upload
-                          listType="picture-card"
-                          showUploadList={false}
-                          beforeUpload={handleUpload}
-                        >
-                          {avatar ? (
-                            <Avatar
-                              size={150}
-                              src={avatar}
-                              style={{ cursor: 'pointer' }}
-                            />
-                          ) : (
-                            <Avatar
-                              size={150}
-                              icon={<UserOutlined />}
-                              style={{ cursor: 'pointer' }}
-                            />
-                          )}
-                          {!avatar && (
-                            <div>
-                              <UploadOutlined />
-                              <div style={{ marginTop: 8 }}>Upload</div>
-                            </div>
-                          )}
-                        </Upload>
+                       
                       </Form.Item>
 
                       {/* Full Name */}
@@ -721,4 +670,4 @@ function CreateCV() {
   );
 }
 
-export default CreateCV;
+export default EditCvUser;

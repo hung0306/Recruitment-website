@@ -16,7 +16,7 @@ function MenuIn4User(){
             },
             {
                 key: 'g2',
-                label: <Link to="/create-CV">Tạo Cv</Link>,
+                label: <Link to="/template">Tạo Cv</Link>,
                 type: 'group',
               },
               {
