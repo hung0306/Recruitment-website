@@ -3,6 +3,7 @@ import { getCompany } from "../../services/companyService"
 import { Button, Card, Col, Row, Spin, Tag } from "antd"
 import { Link } from "react-router-dom";
 import "./companyList.scss"
+import { getAllJob, getListJob } from "../../services/jobService";
 
 function CompanyList() {
     const [data, setData] = useState([]);
@@ -11,7 +12,16 @@ function CompanyList() {
     useEffect(() => {
         const fetchAPI = async () => {
             const response = await getCompany();
-            setData(response);
+            const job = await getAllJob()
+            let result = [];
+            for (let i = 0; i < response.length; i++) {
+                result.push({
+                    ...job.find(item => item.idCompany === response[i].id),
+                    ...response[i]
+                })
+
+            }
+            setData(result);
             if (data) {
                 setXoay(false);
             }
@@ -23,47 +33,50 @@ function CompanyList() {
     console.log(data);
     return (
         <>
-            <h2 className="listcompany">Danh sách một số công ty</h2>
-            <div className="container">
+            <h2 className="listcompany">Nhà tuyển dụng hàng đầu</h2>
+            <div className="container_company">
                 <Spin spinning={xoay} tip="vui lòng chờ...">
-                    <Row className="mb-30 mt-30" gutter={[20, 20]}>
+                    <div className="list">
                         {data.map(item => (
-                            <Col span={6} key={item.id}>
-                                <Link to={`/company/${item.id}`}>
-                                    <Card className="listcompany__tag">
-                                        {/* <div className="listcompany__company">Công ty: <strong>{item.companyName}</strong></div>
-                                    <div>Số nhân sự: <strong>{item.quantityPeople}</strong></div>
-                                    <div>Địa chỉ: <strong>{item.address}</strong> </div> */}
-                                        <Row>
-                                            <Col  span={8}>
-                                                <div style={{ height: "78px", width: "78px" }}>
-                                                    <img
-                                                        src="https://cdn-new.topcv.vn/unsafe/200x/https://static.topcv.vn/company_logos/cong-ty-co-phan-falcon-technology-81320f9a475dbf9285bacb89bcf6daa3-651398605552d.jpg"
-                                                        alt="Company Logo"
-                                                        style={{ width: "78px", height: "78px" }}
-                                                    />
-                                                </div>
-                                            </Col>
-                                            <Col  span={16}>
-                                            
-                                                <Row>
-                                                    <Col>  <div className="listcompany__company">{item.companyName}</div></Col>
-                                                    
-                                                   
-                                                    <Col style={{marginTop:"15px"}} > <div><Tag style={{background:"#f4f5f5" }} >{item.quantityPeople} nhân sự</Tag>  <Tag style={{background:"#f4f5f5" }}>{item.address}</Tag></div> </Col>
-                                                  
-                                                </Row>
-                                                <Col style={{marginTop:"15px"}}><Tag>Thời gian làm việc {item.workingTime}</Tag></Col>
-                                            
-                                               
+                            <Link className="listcompany__item" style={{ color: "grey" }} to={`/company/${item.id}`}>
+                                <div className="listcompany__row"  key={item.id}>
 
-                                               </Col>
-                                        </Row>
-                                    </Card>
-                                </Link>
-                            </Col>
+                                    <div >
+
+                                        <img className="listcompany__img" 
+                                            src="https://cdn-new.topcv.vn/unsafe/200x/https://static.topcv.vn/company_logos/cong-ty-co-phan-falcon-technology-81320f9a475dbf9285bacb89bcf6daa3-651398605552d.jpg"
+                                            alt="Company Logo"
+
+                                        />
+
+                                    </div>
+                                    <div >
+                                        <div className="companyName">{item.companyName}</div>
+                                        <div style={{ marginTop: 11, display: 'flex', }}>
+
+
+                                            <Tag color="default">Hà Nội</Tag>
+                                            <Tag color="default">{item.salary}$/Tháng</Tag>
+                                        </div>
+
+                                        <div style={{ marginTop: "10px" }}>Hơn {item.quantityPeople} nhân sự </div>
+
+                                        <div style={{ marginTop: "10px" }}>Cần tuyển thêm {item.quantityJob} nhân sự</div>
+
+
+
+
+
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </Link>
                         ))}
-                    </Row>
+                    </div>
                 </Spin>
             </div>
 

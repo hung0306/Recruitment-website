@@ -59,11 +59,11 @@ function EditCvUser() {
    
     
    
-      const result = await editCvUser(values);
+      const result = await editCvUser(params.id,values);
     
       
       if (result) {
-        message.success('CV created successfully');
+        message.success('cap nhat');
        
       
       } else {

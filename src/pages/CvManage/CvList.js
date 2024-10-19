@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCookie } from "../../helpers/cookies"
-import { getListCv } from "../../services/cvService";
+import { getDetailCv, getListCv } from "../../services/cvService";
 import { Button, Table, Tooltip } from "antd";
 import { Tag } from "antd";
 import { Link } from "react-router-dom";
@@ -15,9 +15,19 @@ function CvList(props) {
 
     const fetchApi = async () => {
         const response = await getListCv(idCompany);
-        if (response) {
-            setListCv(response)
+        const cv = await fetch("http://localhost:3000/cv")
+        const data = await cv.json();
+        
+        let result = [];
+        for (let i = 0; i < response.length; i++) {
+            result.push({
+                ...data.find(item => item.id === response[i].idcv),
+                ...response[i]
+
+            }) //nó chỉ lấy 1 id thôi, trong trường hợp này AnswersByUserId và topics đều có id nên nó lấy cái được rãi đầu tiên)
         }
+        
+        setListCv(result.reverse())
     };
     useEffect(() => {
         fetchApi()
@@ -35,7 +45,7 @@ function CvList(props) {
         },
         {
             title: "Họ tên",
-            dataIndex: "name",
+            dataIndex: "nameUser",
             key: "name",
 
         },

@@ -22,7 +22,7 @@ function LayoutDefault() {
                 <Header className="header">
                     <Row justify="space-between">
                         <Col className="header__logo" span={16}>
-                            <Link className="logo" to="/">Tìm việc làm online</Link>
+                            <Link className="logo" to="/"><img style={{ height: "64px" }} src="https://static.topcv.vn/v4/image/logo/topcv-logo-10-year.png" /></Link>
                         </Col>
                         <Col span={8}>
                             <Row gutter={[20]}>
@@ -36,10 +36,11 @@ function LayoutDefault() {
                                             </Col>
                                         )}
                                         {role === "user" && (
-                                            <Col span={16}>
-                                             
-                                                    <MenuIn4User/>
-                                                
+                                            <Col style={{ zIndex: "999" }} span={16}>
+
+
+                                                <MenuIn4User />
+
                                             </Col>
                                         )}
                                         <Col span={8}>

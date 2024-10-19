@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getCompany } from "../../services/companyService";
 import { Col, Row, } from 'antd';
 import Jobitem from "../../Components/Jobitem";
-
+import "./search.scss"
 
 function SearchList(props) {
     const { data = [] } = props;
@@ -32,7 +32,7 @@ function SearchList(props) {
         <>
 
             {dataFinal.length > 0 ? (
-                <div>
+                <div className="item-search">
                     <Row gutter={[30, 30]}>
                         {dataFinal.map((item) => (
                             <Col span={8} key={item.id}>

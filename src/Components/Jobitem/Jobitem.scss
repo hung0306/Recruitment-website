@@ -1,0 +1,37 @@
+.info-cty{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    
+}
+.date-post{
+    color: #a6a6a6;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.title-job{
+    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 12px
+    
+}
+.name-company{
+    color: #a6a6a6;
+    font-size: 14px;
+    font-weight: 500;
+}
+.item__job{
+    background-color: #FFF4E9;
+    border-radius: 10px;
+}
+.item__job:hover{
+    border: 1px solid red;
+}
+.quantity{
+    color: #a6a6a6;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}

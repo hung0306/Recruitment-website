@@ -4,6 +4,10 @@ export const createCv = async (option) => {
     const result = await post(`cv`, option);
     return result;
 }
+export const submitCv = async (option) => {
+    const result = await post(`cvs`, option);
+    return result;
+}
 export const getListCv = async (id) => {
     const result = await get(`cvs?idCompany=${id}`);
     return result;
@@ -35,4 +39,9 @@ export const getDetailCvUser = async (id) => {
 export const editCvUser = async (id, options) => {
     const result = await patch(`cv/${id}`, options);
     return result;
+}
+
+export const deleteCvUser = async (id) => {
+    const result = await del(`cv/${id}`);
+    return result
 }

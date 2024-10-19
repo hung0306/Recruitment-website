@@ -37,8 +37,13 @@ function Register() {
         content: 'Số điện thoại đã tồn tại',
       });
     } else {
+
       const result = await company.creatCompany(newValue);
-      const result1 = await company.creatCompany1(newValue);
+      const valueCompany = {
+        ...newValue,
+        id : result.id
+      }
+      const result1 = await company.creatCompany1(valueCompany);
       console.log(result1);
       
       if (result) {

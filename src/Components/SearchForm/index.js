@@ -40,6 +40,7 @@ function SearchForm() {
     return (
         <>
             <h1 className="title">Tìm việc làm nhanh 24h, việc làm mới nhất trên toàn quốc.</h1>
+            <div className='sub-title'>Tiếp cận 40,000+ tin tuyển dụng việc làm mỗi ngày từ hàng nghìn doanh nghiệp uy tín tại Việt Nam</div>
 
             {city && (
 
@@ -53,7 +54,7 @@ function SearchForm() {
                             <Form.Item name="city"
 
                             >
-                                <Select
+                                <Select style={{height:"50px"}}
                                     options={city}
                                     placeholder={
                                         <>
@@ -71,7 +72,7 @@ function SearchForm() {
                             <Form.Item name="keyword"
 
                             >
-                                <Input placeholder='Vị trí tuyển dụng' />
+                                <Input style={{height:"50px"}} placeholder='Vị trí tuyển dụng' />
 
                             </Form.Item>
                         </Col>
@@ -80,7 +81,7 @@ function SearchForm() {
                             <Form.Item
 
                             >
-                                <Button type="primary"  style={{ backgroundColor: "#00b14f"}} htmlType="submit">
+                                <Button  type="primary"  style={{ backgroundColor: "#00b14f", height:"50px" }} htmlType="submit">
                                     <SearchOutlined /> Tìm kiếm
                                 </Button>
                             </Form.Item>

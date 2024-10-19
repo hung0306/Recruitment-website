@@ -1,27 +1,32 @@
 import { Menu } from 'antd';
 import { Link } from "react-router-dom"
+import {
+  
+  EditOutlined,UserAddOutlined, MenuOutlined
+} from '@ant-design/icons';
+import "./MenuIn4User.scss"
 
 function MenuIn4User(){
 
 
     const items = [
         {
-          key: 'sub1',
-          label: 'Quản lý tài khoản',
+          key: '1',
+          label: <div style={{fontWeight:"bold"}}>Quản lý tài khoản</div>,
           children: [
             {
-              key: 'g1',
-              label: <Link to="/profile">Thông tin cá nhân</Link>,
+              key: '2',
+              label: <Link to="/profile" > <EditOutlined style={{ color: 'green', marginRight: '8px' }}/>  <span style={{ color: 'black' }}>Thông tin cá nhân</span></Link>,
               type: 'group',
             },
             {
-                key: 'g2',
-                label: <Link to="/template">Tạo Cv</Link>,
+                key: '3',
+                label: <Link to="/template" ><UserAddOutlined style={{ color: 'green', marginRight: '8px' }} />  <span style={{ color: 'black' }}>Tạo CV mới</span></Link>,
                 type: 'group',
               },
               {
-                key: 'g3',
-                label: <Link to="/manager-Cv-user">Quản lý Cv</Link>,
+                key: '4',
+                label: <Link to="/manager-Cv-user"><MenuOutlined style={{ color: 'green', marginRight: '8px' }}/>  <span style={{ color: 'black' }}>Quản lý CV của bạn</span></Link>,
                 type: 'group',
               },
         ]
@@ -32,11 +37,9 @@ function MenuIn4User(){
     ]
     return(
         <>
-       <Menu
+       <Menu style={{margin:"10px 0px"}}
      
-      style={{
-        width: 256, 
-      }}
+      
       
       mode="inline"
       items={items}

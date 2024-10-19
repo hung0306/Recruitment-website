@@ -32,7 +32,7 @@ function Search() {
     return (
         <>
             <Goback />
-            <div className="mb-30 mt-30">
+            <div className="mb-30 mt-30" >
                 <strong className="mr-20" >Kết quả:</strong>
                 {citySearch && <Tag color="red">{citySearch}</Tag>}
                 {keywordSearch && <Tag color="blue">{keywordSearch}</Tag>}

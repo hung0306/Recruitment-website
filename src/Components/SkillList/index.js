@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getListTag } from "../../services/tagService"
 import { Link } from "react-router-dom";
 import { Tag } from "antd";
+import "./SkillList.scss"
 
 function SkillList() {
 
@@ -22,7 +23,7 @@ function SkillList() {
             <div >
                 {tags.map(item => (
                     <Link to={`Search?keyword=${item.value || ""}`} key={item.key}>
-                        <Tag color="blue">
+                        <Tag className="tagcss" style={{ fontSize: '12px', height:"30px", width:"70px", margin:"60px 7px", fontWeight:"bold", }} >
                             {item.value}
                         </Tag>
                     </Link>
