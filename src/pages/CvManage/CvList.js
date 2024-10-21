@@ -15,6 +15,8 @@ function CvList(props) {
 
     const fetchApi = async () => {
         const response = await getListCv(idCompany);
+        console.log(response);
+        
         const cv = await fetch("http://localhost:3000/cv")
         const data = await cv.json();
         
@@ -24,25 +26,29 @@ function CvList(props) {
                 ...data.find(item => item.id === response[i].idcv),
                 ...response[i]
 
-            }) //nó chỉ lấy 1 id thôi, trong trường hợp này AnswersByUserId và topics đều có id nên nó lấy cái được rãi đầu tiên)
+            }) 
         }
-        
+
+
         setListCv(result.reverse())
     };
     useEffect(() => {
         fetchApi()
     }, [reload])
 
+    console.log("hi",listCv);
+    
+    
+    
+    
+    
+
     const handleReload = () => {
         setReload(!reload)
 
     }
     const columns = [
-        {
-            title: "Tên job",
-            dataIndex: "idJob",
-            key: "idJob"
-        },
+       
         {
             title: "Họ tên",
             dataIndex: "nameUser",
@@ -99,7 +105,7 @@ function CvList(props) {
         },
     ]
 
-    // console.log(listCv);
+    console.log(listCv);
     return (
         <>
             <div className={className}>

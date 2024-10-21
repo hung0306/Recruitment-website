@@ -1,0 +1,29 @@
+.info-job{
+    background-color: rgb(80, 80, 216);
+    border:  1px solid blue($color: #000000);
+    
+    &__tt{
+        display: flex;
+        justify-content: space-around;
+    
+    }
+    &__icon{
+        font-size: 50px;
+        color: white;
+    }
+    &__text{
+        color: white;
+    }
+    &__title{
+        text-align: center;
+    }
+  
+}
+.info-job .ant-card-head {
+    background-color: white;
+    
+  }
+
+  .dashboard{
+  padding: 0px 30px;
+  }

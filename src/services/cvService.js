@@ -26,6 +26,11 @@ export const changeSttCv = async (id, options) => {
     return result;
 }
 
+export const timeUpDateCv =  async(id, options)=>{
+    const result = await patch(`cv/${id}`, options);
+    return result
+}
+
 
 export const getListCvUser = async (id) => {
     const result = await get(`cv?idUser=${id}`);

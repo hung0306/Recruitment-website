@@ -1,0 +1,92 @@
+.job-detail-container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.job-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.job-header-title {
+    font-size: 2rem;
+    color: #333;
+}
+
+.job-status-container,
+.job-tags-container,
+.job-salary-container,
+.job-created-container,
+.job-updated-container,
+.job-city-container,
+.job-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.job-status-tag,
+.job-tags-tag,
+.job-city-tag {
+    margin-left: 5px;
+}
+
+.label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.value {
+    font-size: 1rem;
+    color: #666;
+}
+
+.value span {
+    font-weight: 600;
+}
+
+.goback-container {
+    margin-bottom: 20px;
+}
+
+.goback-button {
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.goback-button:hover {
+    background: #0056b3;
+}
+
+.description-content {
+    margin-top: 20px;
+    line-height: 1.5;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .job-detail-container {
+        padding: 20px;
+    }
+
+    .job-header-title {
+        font-size: 1.5rem;
+    }
+
+    .label,
+    .value {
+        font-size: 1rem;
+    }
+}

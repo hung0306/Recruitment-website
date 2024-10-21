@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import {
   Layout,
   Row,
@@ -14,22 +15,22 @@ import {
   Upload,
 } from 'antd';
 import {
-  PhoneOutlined,
+ 
   MailOutlined,
-  GlobalOutlined,
-  EnvironmentOutlined,
-  UserOutlined,
-  SendOutlined,
-  UploadOutlined,
+  
 } from '@ant-design/icons';
+import { PhoneOutlined, EnvironmentOutlined, PlusOutlined, MinusCircleOutlined } from '@ant-design/icons';
 import { getCookie } from '../../helpers/cookies';
 import { getDetailUser } from '../../services/userService';
-import { editCvUser, getDetailCvUser } from '../../services/cvService';
+import { editCvUser, getDetailCvUser, timeUpDateCv } from '../../services/cvService';
 import { useParams } from 'react-router-dom';
+import Goback from '../../Components/Goback';
+import { getTimeCurrent } from '../../helpers/getTime';
 
 
 const { Content } = Layout;
 const { Title } = Typography;
+const { TextArea } = Input;
 
 function EditCvUser() {
   const [form] = Form.useForm();
@@ -37,636 +38,513 @@ function EditCvUser() {
   const idUser = getCookie('id');
 
   const [info, setInfo] = useState();
-  const [avatar, setAvatar] = useState(null); 
-  
+
+
 
   useEffect(() => {
     const fetchApi = async () => {
-     
-        const response = await getDetailCvUser(params.id);
-        if (response) {
-          setInfo(response);
-         
-        }
-    
+
+      const response = await getDetailCvUser(params.id);
+      if (response) {
+        setInfo(response);
+
+      }
+
     };
     fetchApi();
   }, []);
-  console.log(info);
-  
+  // console.log(info.avatar);
+
 
   const onFinish = async (values) => {
+    timeUpDateCv(params.id, {updateAt : getTimeCurrent()})
    
     
-   
-      const result = await editCvUser(params.id,values);
-    
-      
-      if (result) {
-        message.success('cap nhat');
-       
-      
-      } else {
-        message.error('Failed to create CV');
-      }
-    
+console.log(values);
+
+
+
+    const result = await editCvUser(params.id, values);
+
+
+    if (result) {
+      message.success('Sửa CV thành công.');
+
+
+    } else {
+      message.error('Failed to create CV');
+    }
+
   };
 
- 
+
 
   return (
-    <div className="container" style={{ padding: '24px' }}>
-      {info ? (
-        <Layout>
-          <Content>
-            <Form
-              form={form}
-              initialValues={info}
-              onFinish={onFinish}
-              layout="vertical"
-            >
-              <Card>
-                <Row gutter={[24, 24]}>
-                  {/* Left Column */}
-                  <Col xs={24} md={8}>
-                    <div style={{ textAlign: 'center' }}>
-                      {/* Avatar Upload */}
-                      <Form.Item name="avatar">
-                       
-                      </Form.Item>
+    <>
+      <Goback />
+      <div className="container" style={{ padding: '24px' }}>
 
-                      {/* Full Name */}
-                      <Form.Item
-                        name="nameUser"
-                        rules={[
-                          { message: 'Please enter your full name' },
-                        ]}
-                      >
-                        <Input placeholder="Full Name" />
-                      </Form.Item>
+        {info ? (
+          <Form form={form}
+            onFinish={onFinish}
+            className='cv'
+            layout="vertical"
+            style={{ maxWidth: '800px', margin: '0 auto' }}
+            initialValues={info}
+          >
+            <Row gutter={16} align="middle">
+              {/* Tên và vị trí ứng tuyển */}
+              <Col span={16}>
+                <div className='personal_item'>
+                  <Form.Item
+                    name="nameUser"
 
-                      {/* Position */}
-                      <Form.Item
-                        name="position"
-                        rules={[
-                          {
-                            message: 'Please enter the position you are applying for',
-                          },
-                        ]}
-                      >
-                        <Input placeholder="Vị trí ứng tuyển" />
-                      </Form.Item>
-                    </div>
+                  >
+                    <Input className='border__none personal-info__name' />
+                  </Form.Item>
+                  <Form.Item
+                    name="jobPosition"
 
-                    <Divider />
+                  >
+                    <Input className='border__none personal-info__position' placeholder={"Vị trí ứng tuyển"} />
+                  </Form.Item>
+                </div>
+              </Col>
 
-                    {/* Contact Information */}
-                    <div>
-                      <Form.Item
-                        name="phone"
-                        rules={[
-                          { message: 'Please enter your phone number' },
-                          {
-                            pattern: /^\+?\d{10,15}$/,
-                            message: 'Please enter a valid phone number',
-                          },
-                        ]}
-                      >
-                        <Input
-                          prefix={<PhoneOutlined />}
-                          placeholder="Số điện thoại"
-                        />
-                      </Form.Item>
-                      <Form.Item
-                        name="email"
-                        rules={[
-                          { type: 'email', message: 'Please enter a valid email' },
-                          { message: 'Please enter your email' },
-                        ]}
-                      >
-                        <Input prefix={<MailOutlined />} placeholder="Email" />
-                      </Form.Item>
-                      <Form.Item name="website">
-                        <Input
-                          prefix={<GlobalOutlined />}
-                          placeholder="Link Facebook"
-                        />
-                      </Form.Item>
-                      <Form.Item name="location">
-                        <Input
-                          prefix={<EnvironmentOutlined />}
-                          placeholder="Địa chỉ"
-                        />
-                      </Form.Item>
-                    </div>
+              {/* Thông tin liên lạc */}
+              <Col span={8}>
+                <div className="personal-info__contact">
+                  <div className="contact-item">
+                    <PhoneOutlined className="icon" />
+                    <Form.Item
+                      name="phone"
 
-                    <Divider />
+                    >
+                      <Input className='border__none personal-info__phone'placeholder='Số điện thoại' />
+                    </Form.Item>
+                  </div>
+                  <div className="contact-item">
+                    <MailOutlined className="icon" />
+                    <Form.Item
+                      name="email"
+                      rules={[
 
-                    {/* Skills */}
-                    <div>
-                      <Title level={4}>Kỹ năng</Title>
-                      <Form.List name="skills">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <div
-                                key={key}
-                                style={{ display: 'flex', marginBottom: 8 }}
+                        { type: 'email', message: 'Email không hợp lệ!' },
+                      ]}
+                    >
+                      <Input className='border__none personal-info__email' placeholder='Nhập email' />
+                    </Form.Item>
+                  </div>
+                  <div className="contact-item">
+                    <EnvironmentOutlined className="icon" />
+                    <Form.Item
+                      name="address"
+
+                    >
+                      <Input className='border__none personal-info__address' placeholder='Địa chỉ' />
+                    </Form.Item>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+
+            {/* Mục tiêu nghề nghiệp - Dynamic List */}
+            <div className="section">
+              <h3 className="section-header">Mục tiêu nghề nghiệp</h3>
+              <div className="section-content">
+                <Form.List name="careerObjectives">
+                  {(fields, { add, remove }) => (
+                    <>
+                      {fields.map(({ key, name, fieldKey, ...restField }) => (
+                        <Row key={key} gutter={16} align="middle">
+                          <Col span={20}>
+                            <Form.Item
+                              {...restField}
+                              name={[name, 'objective']}
+                              fieldKey={[fieldKey, 'objective']}
+
+                            >
+                              <TextArea className='border__none' rows={3} placeholder="Mô tả mục tiêu nghề nghiệp của bạn" />
+                            </Form.Item>
+                          </Col>
+                          <Col span={4}>
+                            <Button
+                              type="danger"
+                              icon={<MinusCircleOutlined />}
+                              onClick={() => remove(name)}
+                            >
+                              Xóa
+                            </Button>
+                          </Col>
+                        </Row>
+                      ))}
+
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Thêm mục tiêu
+                        </Button>
+                      </Form.Item>
+                    </>
+                  )}
+                </Form.List>
+              </div>
+            </div>
+
+            {/* Kinh nghiệm làm việc - Dynamic List */}
+            <div className="section">
+              <h3 className="section-header">Kinh nghiệm làm việc</h3>
+              <div className="section-content">
+                <Form.List name="workExperience">
+                  {(fields, { add, remove }) => (
+                    <>
+                      {fields.map(({ key, name, fieldKey, ...restField }) => (
+                        <div key={key} className="timeline-item">
+                          <Row gutter={16} align="middle">
+                            <Col span={10}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'companyName']}
+                                fieldKey={[fieldKey, 'companyName']}
+
+
                               >
+                                <Input className='border__none' placeholder="Tên công ty" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={10}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'jobTitle']}
+                                fieldKey={[fieldKey, 'jobTitle']}
+
+
+                              >
+                                <Input className='border__none' placeholder="Vị trí công việc" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={4}>
+                              <Button
+                                type="danger"
+                                icon={<MinusCircleOutlined />}
+                                onClick={() => remove(name)}
+                              >
+                                Xóa
+                              </Button>
+                            </Col>
+                          </Row>
+                          <Row gutter={16} align="middle">
+                            <Col span={10}>   <Form.Item
+                              {...restField}
+                              name={[name, 'jobDuration']}
+                              fieldKey={[fieldKey, 'jobDuration']}
+
+
+                            >
+                              <Input className='border__none' placeholder="Bắt đầu - Kết thúc" />
+                            </Form.Item></Col>
+                            <Col span={10}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'jobDescription']}
+                                fieldKey={[fieldKey, 'jobDescription']}
+
+                              >
+                                <TextArea className='border__none' rows={3} placeholder="Mô tả kinh nghiệm làm việc của bạn" />
+                              </Form.Item></Col>
+                          </Row>
+
+
+
+                        </div>
+                      ))}
+
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Thêm kinh nghiệm làm việc
+                        </Button>
+                      </Form.Item>
+                    </>
+                  )}
+                </Form.List>
+              </div>
+            </div>
+
+            {/* Học vấn - Dynamic List */}
+            <div className="section">
+              <h3 className="section-header">Học vấn</h3>
+              <div className="section-content">
+                <Form.List name="education">
+                  {(fields, { add, remove }) => (
+                    <>
+                      {fields.map(({ key, name, fieldKey, ...restField }) => (
+                        <div key={key}>
+                          <Row gutter={16} align="middle">
+                            <Col span={10}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'educationPeriod']}
+                                fieldKey={[fieldKey, 'educationPeriod']}
+
+
+                              >
+                                <Input className='border__none' placeholder="Bắt đầu - Kết thúc" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={10}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'educationSchool']}
+                                fieldKey={[fieldKey, 'educationSchool']}
+
+
+                              >
+                                <Input className='border__none' placeholder="Tên trường học" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={4}>
+                              <Button
+                                type="danger"
+                                icon={<MinusCircleOutlined />}
+                                onClick={() => remove(name)}
+                              >
+                                Xóa
+                              </Button>
+                            </Col>
+                          </Row>
+                          <Form.Item
+                            {...restField}
+                            name={[name, 'educationField']}
+                            fieldKey={[fieldKey, 'educationField']}
+
+                          >
+                            <Input className='border__none' placeholder="Ngành học / Môn học" />
+                          </Form.Item>
+                        </div>
+                      ))}
+
+                      <Form.Item>
+                        <Button
+                          type="dashed"
+                          onClick={() => add()}
+                          block
+                          icon={<PlusOutlined />}
+                        >
+                          Thêm học vấn
+                        </Button>
+                      </Form.Item>
+                    </>
+                  )}
+                </Form.List>
+              </div>
+            </div>
+
+            {/* Kỹ năng - Dynamic List */}
+
+
+            {/* Danh hiệu - Dynamic List */}
+            <Row gutter={20}>
+              <Col span={7}>
+                <div className="section">
+                  <h3 className="section-header">Danh hiệu</h3>
+                  <div className="section-content">
+                    <Form.List name="awards">
+                      {(fields, { add, remove }) => (
+                        <>
+                          {fields.map(({ key, name, fieldKey, ...restField }) => (
+                            <Row key={key} gutter={16} align="middle">
+                              <Col span={24}>
                                 <Form.Item
                                   {...restField}
-                                  name={name}
-                                  rules={[
-                                    { message: 'Please enter a skill' },
-                                  ]}
-                                  style={{ flex: 1, marginRight: 8 }}
+                                  name={[name, 'awardPeriod']}
+                                  fieldKey={[fieldKey, 'awardPeriod']}
+
+
                                 >
-                                  <Input placeholder="Skill" />
+                                  <Input className='border__none' placeholder="Bắt đầu - Kết thúc" />
                                 </Form.Item>
+                              </Col>
+                              <Col span={24}>
+                                <Form.Item
+                                  {...restField}
+                                  name={[name, 'awardName']}
+                                  fieldKey={[fieldKey, 'awardName']}
+
+
+                                >
+                                  <Input className='border__none' placeholder="Tên danh hiệu" />
+                                </Form.Item>
+                              </Col>
+                              <Col span={4}>
                                 <Button
-                                  type="text"
-                                  danger
+                                  type="danger"
+                                  icon={<MinusCircleOutlined />}
                                   onClick={() => remove(name)}
                                 >
                                   Xóa
                                 </Button>
-                              </div>
-                            ))}
-                            <Form.Item>
+                              </Col>
+                            </Row>
+                          ))}
+
+                          <Form.Item>
+                            <Button
+                              type="dashed"
+                              onClick={() => add()}
+                              block
+                              icon={<PlusOutlined />}
+                            >
+                              Thêm danh hiệu
+                            </Button>
+                          </Form.Item>
+                        </>
+                      )}
+                    </Form.List>
+                  </div>
+                </div>
+
+              </Col>
+              <Col span={7}><div className="section">
+                <h3 className="section-header">Chứng chỉ</h3>
+                <div className="section-content">
+                  <Form.List name="certificates">
+                    {(fields, { add, remove }) => (
+                      <>
+                        {fields.map(({ key, name, fieldKey, ...restField }) => (
+                          <Row key={key} gutter={16} align="middle">
+                            <Col span={24}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'certificatePeriod']}
+                                fieldKey={[fieldKey, 'certificatePeriod']}
+
+                              >
+                                <Input className='border__none' placeholder="Bắt đầu - Kết thúc" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={24}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'certificateName']}
+                                fieldKey={[fieldKey, 'certificateName']}
+
+
+                              >
+                                <Input className='border__none' placeholder="Tên chứng chỉ" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={4}>
                               <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
+                                type="danger"
+                                icon={<MinusCircleOutlined />}
+                                onClick={() => remove(name)}
                               >
-                                Thêm kỹ năng
+                                Xóa
                               </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
+                            </Col>
+                          </Row>
+                        ))}
 
-                    <Divider />
+                        <Form.Item>
+                          <Button
+                            type="dashed"
+                            onClick={() => add()}
+                            block
+                            icon={<PlusOutlined />}
+                          >
+                            Thêm chứng chỉ
+                          </Button>
+                        </Form.Item>
+                      </>
+                    )}
+                  </Form.List>
+                </div>
+              </div></Col>
+              <Col span={7}> <div className="section">
+                <h3 className="section-header">Các kỹ năng</h3>
+                <div className="section-content">
+                  <Form.List name="skills">
+                    {(fields, { add, remove }) => (
+                      <>
+                        {fields.map(({ key, name, fieldKey, ...restField }) => (
+                          <Row key={key} gutter={16} align="middle">
+                            <Col span={24}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'skillName']}
+                                fieldKey={[fieldKey, 'skillName']}
 
-                    {/* Languages */}
-                    <div>
-                      <Title level={4}>Ngôn ngữ</Title>
-                      <Form.List name="languages">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <div
-                                key={key}
-                                style={{ display: 'flex', marginBottom: 8 }}
+
                               >
-                                <Form.Item
-                                  {...restField}
-                                  name={name}
-                                  rules={[
-                                    { message: 'Please enter a language' },
-                                  ]}
-                                  style={{ flex: 1, marginRight: 8 }}
-                                >
-                                  <Input placeholder="Language" />
-                                </Form.Item>
-                                <Button
-                                  type="text"
-                                  danger
-                                  onClick={() => remove(name)}
-                                >
-                                  Xóa
-                                </Button>
-                              </div>
-                            ))}
-                            <Form.Item>
+                                <Input className='border__none' placeholder="Tên kỹ năng" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={24}>
+                              <Form.Item
+                                {...restField}
+                                name={[name, 'skillDescription']}
+                                fieldKey={[fieldKey, 'skillDescription']}
+
+                              >
+                                <TextArea className='border__none' rows={1} placeholder="Mô tả kỹ năng" />
+                              </Form.Item>
+                            </Col>
+                            <Col span={4}>
                               <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
+                                type="danger"
+                                icon={<MinusCircleOutlined />}
+                                onClick={() => remove(name)}
                               >
-                                Thêm ngôn ngữ
+                                Xóa
                               </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
-                  </Col>
+                            </Col>
+                          </Row>
+                        ))}
 
-                  {/* Right Column */}
-                  <Col xs={24} md={16}>
-                    {/* Introduction */}
-                    <div>
-                      <Title level={3}>Giới thiệu</Title>
-                      <Form.Item
-                        name="introduction"
-                        rules={[
-                          {
-                            message:
-                              'Please enter your career objective or introduction',
-                          },
-                        ]}
-                      >
-                        <Input.TextArea
-                          rows={4}
-                          placeholder="Mục tiêu nghề nghiệp của bạn, bao gồm mục tiêu ngắn hạn và dài hạn."
-                        />
-                      </Form.Item>
-                    </div>
+                        <Form.Item>
+                          <Button
+                            type="dashed"
+                            onClick={() => add()}
+                            block
+                            icon={<PlusOutlined />}
+                          >
+                            Thêm kỹ năng
+                          </Button>
+                        </Form.Item>
+                      </>
+                    )}
+                  </Form.List>
+                </div>
+              </div></Col>
 
-                    <Divider />
+            </Row>
 
-                    {/* Work Experience */}
-                    <div>
-                      <Title level={3}>Kinh nghiệm làm việc</Title>
-                      <Form.List name="workExperience">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <Card
-                                key={key}
-                                type="inner"
-                                title={`Kinh nghiệm ${name + 1}`}
-                                extra={
-                                  <Button
-                                    type="link"
-                                    danger
-                                    onClick={() => remove(name)}
-                                  >
-                                    Xóa
-                                  </Button>
-                                }
-                                style={{ marginBottom: 16 }}
-                              >
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'company']}
-                                  label="Tên công ty"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the company name',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Company Name" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'position']}
-                                  label="Vị trí"
-                                  rules={[
-                                    {
-                                      message: 'Please enter your position',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Position" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'period']}
-                                  label="Thời gian làm việc"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the work period',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Work Period" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'description']}
-                                  label="Mô tả công việc"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the job description',
-                                    },
-                                  ]}
-                                >
-                                  <Input.TextArea
-                                    rows={4}
-                                    placeholder="Job Description"
-                                  />
-                                </Form.Item>
-                              </Card>
-                            ))}
-                            <Form.Item>
-                              <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
-                              >
-                                Thêm kinh nghiệm làm việc
-                              </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
+            {/* Chứng chỉ - Dynamic List */}
 
-                    <Divider />
 
-                    {/* Education */}
-                    <div>
-                      <Title level={3}>Học vấn</Title>
-                      <Form.List name="education">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <Card
-                                key={key}
-                                type="inner"
-                                title={`Học vấn ${name + 1}`}
-                                extra={
-                                  <Button
-                                    type="link"
-                                    danger
-                                    onClick={() => remove(name)}
-                                  >
-                                    Xóa
-                                  </Button>
-                                }
-                                style={{ marginBottom: 16 }}
-                              >
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'school']}
-                                  label="Tên trường"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the school name',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="School Name" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'degree']}
-                                  label="Bằng cấp / Chuyên ngành"
-                                  rules={[
-                                    {
-                                      message: 'Please enter your degree or major',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Degree / Major" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'period']}
-                                  label="Thời gian học"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the study period',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Study Period" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'description']}
-                                  label="Mô tả (Tùy chọn)"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the description',
-                                    },
-                                  ]}
-                                >
-                                  <Input.TextArea
-                                    rows={4}
-                                    placeholder="Description (Optional)"
-                                  />
-                                </Form.Item>
-                              </Card>
-                            ))}
-                            <Form.Item>
-                              <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
-                              >
-                                Thêm học vấn
-                              </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
+            {/* Sở thích - Dynamic List */}
 
-                    <Divider />
 
-                    {/* Projects */}
-                    <div>
-                      <Title level={3}>Dự án</Title>
-                      <Form.List name="projects">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <Card
-                                key={key}
-                                type="inner"
-                                title={`Dự án ${name + 1}`}
-                                extra={
-                                  <Button
-                                    type="link"
-                                    danger
-                                    onClick={() => remove(name)}
-                                  >
-                                    Xóa
-                                  </Button>
-                                }
-                                style={{ marginBottom: 16 }}
-                              >
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'name']}
-                                  label="Tên dự án"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the project name',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Project Name" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'period']}
-                                  label="Thời gian thực hiện"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the project period',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Project Period" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'role']}
-                                  label="Vai trò của bạn"
-                                  rules={[
-                                    {
-                                      message: 'Please enter your role',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Your Role" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'description']}
-                                  label="Mô tả dự án"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the project description',
-                                    },
-                                  ]}
-                                >
-                                  <Input.TextArea
-                                    rows={4}
-                                    placeholder="Project Description"
-                                  />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'technologies']}
-                                  label="Công nghệ sử dụng"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the technologies used',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Technologies Used" />
-                                </Form.Item>
-                              </Card>
-                            ))}
-                            <Form.Item>
-                              <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
-                              >
-                                Thêm dự án
-                              </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
+            {/* Nút submit */}
+            <Form.Item>
+              <Button type="primary" htmlType="submit">Lưu thông tin</Button>
+            </Form.Item>
+          </Form>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+    </>
 
-                    <Divider />
-
-                    {/* Certifications & Awards */}
-                    <div>
-                      <Title level={3}>Chứng chỉ & Giải thưởng</Title>
-                      <Form.List name="certifications">
-                        {(fields, { add, remove }) => (
-                          <>
-                            {fields.map(({ key, name, ...restField }) => (
-                              <Card
-                                key={key}
-                                type="inner"
-                                title={`Chứng chỉ & Giải thưởng ${name + 1}`}
-                                extra={
-                                  <Button
-                                    type="link"
-                                    danger
-                                    onClick={() => remove(name)}
-                                  >
-                                    Xóa
-                                  </Button>
-                                }
-                                style={{ marginBottom: 16 }}
-                              >
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'name']}
-                                  label="Tên chứng chỉ / Giải thưởng"
-                                  rules={[
-                                    {
-                                      message:
-                                        'Please enter the certification or award name',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Certification/Award Name" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'date']}
-                                  label="Ngày nhận"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the date received',
-                                    },
-                                  ]}
-                                >
-                                  <Input placeholder="Date Received" />
-                                </Form.Item>
-                                <Form.Item
-                                  {...restField}
-                                  name={[name, 'description']}
-                                  label="Mô tả (Tùy chọn)"
-                                  rules={[
-                                    {
-                                      message: 'Please enter the description',
-                                    },
-                                  ]}
-                                >
-                                  <Input.TextArea
-                                    rows={4}
-                                    placeholder="Description (Optional)"
-                                  />
-                                </Form.Item>
-                              </Card>
-                            ))}
-                            <Form.Item>
-                              <Button
-                                type="dashed"
-                                onClick={() => add()}
-                                block
-                                icon={<UploadOutlined />}
-                              >
-                                Thêm giải thưởng
-                              </Button>
-                            </Form.Item>
-                          </>
-                        )}
-                      </Form.List>
-                    </div>
-                  </Col>
-                </Row>
-              </Card>
-
-              {/* Submit Button */}
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  icon={<SendOutlined />}
-                  size="large"
-                  block
-                >
-                  Submit CV
-                </Button>
-              </Form.Item>
-            </Form>
-          </Content>
-        </Layout>
-      ) : (
-        <div>Loading...</div>
-      )}
-    </div>
   );
 }
 

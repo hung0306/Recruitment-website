@@ -10,7 +10,7 @@ function Goback() {
 
     return (
         <>
-            <Button onClick={handleBack}>Trở lại</Button>
+            <Button style={{marginTop:"20px"}} onClick={handleBack}>Trở lại</Button>
         </>
     )
 }

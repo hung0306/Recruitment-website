@@ -120,7 +120,7 @@ function InforCompany() {
                                 </Col>
 
                                 <Col span={8}>
-                                    <Form.Item label="Link web" name="website">
+                                    <Form.Item label="Link ảnh" name="website">
                                         <Input />
                                     </Form.Item>
                                 </Col>

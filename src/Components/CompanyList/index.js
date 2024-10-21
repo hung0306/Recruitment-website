@@ -44,8 +44,7 @@ function CompanyList() {
                                     <div >
 
                                         <img className="listcompany__img" 
-                                            src="https://cdn-new.topcv.vn/unsafe/200x/https://static.topcv.vn/company_logos/cong-ty-co-phan-falcon-technology-81320f9a475dbf9285bacb89bcf6daa3-651398605552d.jpg"
-                                            alt="Company Logo"
+                                            src={item.website}
 
                                         />
 

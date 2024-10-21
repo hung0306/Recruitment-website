@@ -28,8 +28,9 @@ import InforUser from "../pages/InforUser";
 import CvListUser from "../pages/CvListUser";
 import Templatecv from "../pages/CreatedCV/templatecv";
 import CreateCV1 from "../pages/CreatedCV/cv1";
-import CreateCV2 from "../pages/CreatedCV/cv2";
+
 import EditCvUser from "../pages/CvListUser/editCvUser";
+import CreateCV2 from "../pages/CreatedCV/cv2";
 
 
 
@@ -108,25 +109,25 @@ export const routes = [
                         
                      
                     },
-                    {
+                //     {
                         
-                        path:"/create-CV1",
-                        element: <CreateCV1/>
+                //         path:"/create-CV1",
+                //         element: <CreateCV1/>
                     
                  
-                },
+                // },
                 {
                         
-                    path:"/create-CV2",
+                    path:"/create-CV1",
                     element: <CreateCV2/>
                 
              
             },
-                {
-                    path:"/template",
-                    element:<Templatecv/>
+                // {
+                //     path:"/template",
+                //     element:<Templatecv/>
 
-                },
+                // },
                 {
                         
                     path:"/manager-Cv-user",

@@ -1,0 +1,125 @@
+.section {
+    margin-bottom: 20px;
+    
+}
+.cv{
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px!important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    border-radius: 8px; /* Bo tròn góc cho đẹp hơn */
+}
+.section-header {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.section-content {
+    margin-left: 20px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+.column {
+    width: 48%;
+}
+.timeline {
+    position: relative;
+    padding-left: 20px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 0;
+    width: 2px;
+    background: #000;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #000;
+}
+.personal-info {
+    border: 2px solid #5cb85c;
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  
+  .personal-info__name {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 0;
+  }
+  .personal-info__phone{
+    margin: 0;
+  }
+  
+  .personal-info__position {
+    font-style: italic;
+    color: gray;
+  }
+  
+  .personal-info__contact {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-item {
+    display: flex;
+    
+    justify-content: center;
+   
+  
+    
+  }
+  
+  .contact-item .icon {
+    margin-right: 8px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  .add-section-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    
+  }
+  
+  .add-section-btn:hover {
+    background-color: #4cae4c;
+    border-color: #4cae4c;
+  }
+  .icon{
+    height: 27px;
+    width: 20px;
+    background-color: black;
+    color: white!important;
+  
+   
+  }
+
+  .personal_item{
+    border-right: 1px solid black;
+    padding: 0px 15px;
+  }
+  .border__none{
+    border: none;;
+    outline: none;
+  }
+  

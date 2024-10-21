@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button, Row, Col } from 'antd';
+import { Card, Button, Row, Col,notification } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { getListCvUser, submitCv} from '../../services/cvService';
 import { getCookie } from '../../helpers/cookies';
@@ -9,9 +9,11 @@ import { getDetailJob } from '../../services/jobService';
 import { getDetailCompany } from '../../services/companyService';
 import { getTimeCurrent } from '../../helpers/getTime';
 
-function PickCv() {
+function PickCv(props) {
     const [cv, setCv] = useState([]);
-    const [job, setJob] = useState()
+    const [job, setJob] = useState();
+    const [api, contextHolder] = notification.useNotification();
+    const {handleCancel} = props
     const idUser = getCookie("id");
     const params = useParams()
 
@@ -50,6 +52,14 @@ function PickCv() {
         };
 
         const response = await submitCv(submit);
+        if(response){
+            api.success({
+                message: "Đã nộp CV thành công",
+                description: `Hãy chờ nhà tuyển dụng phản hồi.`,
+                duration: 5,
+            });
+            handleCancel()
+        }
       
         // item.idJob = job.id;
         // item.idCompany = job.infoCompany.id;
@@ -62,7 +72,8 @@ function PickCv() {
 
 return (
     <>
-        {cv ? (
+    {contextHolder}
+        {cv.length > 0 ? (
             <>
                 {/* CV Card List */}
 
@@ -79,13 +90,14 @@ return (
                                     className="cv-card"
 
                                     title={[
-                                        <strong>CV-{item.nameUser}-{item.position}</strong>
+                                        <strong>CV-{item.nameUser}-{item.jobPosition}</strong>
                                     ]}
                                 >
                                     <p className="cv-description">
-                                        Last updated: {item.lastUpdated} <br />
-                                        Position: {item.position}
+                                    Cập nhật lần cuối {item.updateAt} <br />
+                                    Vị trí ứng tuyển: {item.jobPosition}
                                     </p>
+                                    
                                 </Card>
 
 
@@ -97,7 +109,7 @@ return (
 
             </>
         ) : (
-            <></>
+            <><div>Bạn chưa có CV nào để ứng tuyển.</div> </>
         )}
     </>
 );

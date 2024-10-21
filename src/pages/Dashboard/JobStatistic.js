@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCookie } from "../../helpers/cookies"
 import { getListJob } from "../../services/jobService";
+import { Card } from "antd";
+import {
+    PlusSquareOutlined
+  } from '@ant-design/icons';
+  import "./dashboard.scss";
+  
 function JobStatistic() {
     const idCompany = getCookie("id");
     const [data, setData] = useState([])
@@ -28,10 +34,24 @@ function JobStatistic() {
         <>
             {data && (
                 <>
-                    <h3>Job</h3>
-                    <p>Số lượng job :<strong>{data.total}</strong></p>
+                <Card style={{height:"200px"}} title="Thông tin job đang tuyển" className="info-job" >
+                    <div className="info-job__tt">
+                        <PlusSquareOutlined className="info-job__icon"/>
+                        <div className="info-job__text">
+                            <div>{data.total} job đang tuyển</div>
+                            <div>{data.statusTrue} job dang bat</div>
+                            <div>{data.statusFalse} job dang tat</div>
+                        </div>
+                    </div>
+                    </Card>
+                   
+                {/* <p>Số lượng job :<strong>{data.total}</strong></p>
                     <p>Job đang bật :<strong>{data.statusTrue}</strong></p>
-                    <p>Job đang tắt :<strong>{data.statusFalse}</strong></p>
+                    <p>Job đang tắt :<strong>{data.statusFalse}</strong></p> */}
+               
+                
+           
+                  
                 </>
             )}
 

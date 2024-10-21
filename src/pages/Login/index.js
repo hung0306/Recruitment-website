@@ -7,6 +7,7 @@ import { setCookie } from "../../helpers/cookies";
 import { checkLogin } from "../../actions/login";
 import { useState } from "react";
 import { createInforUser } from "../../services/userService";
+import { MailOutlined,LockOutlined } from '@ant-design/icons';
 
 function Login() {
   const navigate = useNavigate();
@@ -68,11 +69,11 @@ function Login() {
           <Spin spinning={xoay} tip="vui lòng chờ...">
             <Card title="Đăng nhập">
               <Form onFinish={onFinish} layout="vertical">
-                <Form.Item label="Email" name="email">
-                  <Input />
+                <Form.Item label={<div ><MailOutlined /><span style={{marginLeft:"20px"}}>Email</span></div>} name="email">
+                  <Input  />
                 </Form.Item>
 
-                <Form.Item label="Password" name="password">
+                <Form.Item label={<div ><LockOutlined /><span style={{marginLeft:"20px"}}>Password</span></div>} name="password">
                   <Input.Password />
                 </Form.Item>   
 

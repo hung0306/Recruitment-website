@@ -18,14 +18,14 @@ function LayoutDefault() {
 
     return (
         <>
-            <Layout>
+            <Layout >
                 <Header className="header">
                     <Row justify="space-between">
                         <Col className="header__logo" span={16}>
                             <Link className="logo" to="/"><img style={{ height: "64px" }} src="https://static.topcv.vn/v4/image/logo/topcv-logo-10-year.png" /></Link>
                         </Col>
                         <Col span={8}>
-                            <Row gutter={[20]}>
+                            <Row gutter={[10]}>
                                 {token ? (
                                     <>
                                         {role === "admin" && (

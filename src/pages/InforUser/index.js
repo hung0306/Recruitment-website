@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
-import { getCookie } from "../../helpers/cookies"
+import { getCookie } from "../../helpers/cookies";
+import skillimg from "../../image/hocvan.png";
+import hocvan from "../../image/skill.png"
 import { Button, Card, Col, Form, Input, Modal, Row, Spin, message, DatePicker } from "antd";
+
 
 import {
     getDetailUser, editUser, getSkill, getEducation, deleteEducation, editEducation, deleteSkill, createSkill, createEducation, editSkill, getExperience, editExperience, deleteExperience, createExperience, getCourse, createCourse, deleteCourse, editCourse, createCertificate, deleteCertificate, editCertificate, getCertificate, createPrize, deletePrize, editPrize, getPrize, createProject, deleteProject, editProject, getProject, createProduct, deleteProduct, editProduct, getProduct, createActivity, deleteActivity, editActivity, getActivity
@@ -16,6 +19,7 @@ import EditPrize from "./editPrize";
 import EditProject from "./editProject";
 import EditProduct from "./editProduct";
 import EditActivity from "./editActivity";
+import Goback from "../../Components/Goback";
 const { TextArea } = Input;
 
 
@@ -790,15 +794,16 @@ function InforUser() {
     return (
         <>
             {contextHolder}
+            <Goback/>
             <div className="container">
                 {info && (
                     <Spin spinning={xoay} tip="vui lòng chờ...">
                         {/* Card thông tin công ty */}
                         <Row gutter={[0, 20]}>
                             <Col span={24}>
-                                <Card title="Thông tin công ty" extra={
+                                <Card style={{marginTop:"20px"}} title="Thông tin ứng viên" extra={
                                     !isEdit ? (
-                                        <Button type="primary" onClick={handleEdit}>Chỉnh sửa</Button>
+                                        <Button  style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={handleEdit}>Chỉnh sửa</Button>
                                     ) : (
                                         <Button onClick={handleCancle}>Hủy</Button>
                                     )
@@ -826,7 +831,7 @@ function InforUser() {
                                             {isEdit && (
                                                 <Col>
                                                     <Form.Item>
-                                                        <Button className="mr-10" type="primary" htmlType="submit">Cập nhật</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} className="mr-10" type="primary" htmlType="submit">Cập nhật</Button>
                                                         <Button onClick={handleCancle}>Hủy</Button>
                                                     </Form.Item>
                                                 </Col>
@@ -840,7 +845,7 @@ function InforUser() {
 
                             <Col span={24}>
                                 {/* Card Kỹ năng */}
-                                <Card extra={<Button onClick={showModalSkill} type="primary" >Thêm kỹ năng</Button>} title="Kỹ năng">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalSkill} type="primary" >Thêm kỹ năng</Button>} title="Kỹ năng">
                                     {/* Hiển thị danh sách kỹ năng */}
                                     {skill && skill.length > 0 ? (
                                         skill.map((item, index) => (
@@ -860,7 +865,11 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
-                                        <p>Không có kỹ năng nào.</p>
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
+                                             <p>Không có kỹ năng nào.</p>
+                                             <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-skills.png"/></div>
+                                        </div>
+                                       
                                     )}
 
                                     <Modal title="Kỹ năng" footer={null} onCancel={handleCancelSkill} open={isModalOpenSkill}>
@@ -878,7 +887,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -890,7 +899,7 @@ function InforUser() {
 
                             <Col span={24}>
                                 {/* Card Học vấn */}
-                                <Card extra={<Button onClick={showModalEducation} type="primary" >Thêm học vấn</Button>} title="Học vấn">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalEducation} type="primary" >Thêm học vấn</Button>} title="Học vấn">
                                     {/* Hiển thị danh sách học vấn */}
                                     {education && education.length > 0 ? (
                                         education.map((item, index) => (
@@ -911,7 +920,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
                                         <p>Không có học vấn nào.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-education.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Học vấn" footer={null} onCancel={handleCancelEducation} open={isModalOpenEducation}>
@@ -934,7 +946,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -945,7 +957,7 @@ function InforUser() {
                             </Col>
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalExperience} type="primary">Thêm kinh nghiệm</Button>} title="Kinh nghiệm">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalExperience} type="primary">Thêm kinh nghiệm</Button>} title="Kinh nghiệm">
                                     {/* Hiển thị danh sách kinh nghiệm */}
                                     {experience && experience.length > 0 ? (
                                         experience.map((item, index) => (
@@ -967,7 +979,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
                                         <p>Không có kinh nghiệm nào.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-experience.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Kinh nghiệm" footer={null} onCancel={handleCancelExperience} open={isModalOpenExperience}>
@@ -1000,7 +1015,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1010,7 +1025,7 @@ function InforUser() {
                             </Col>
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalCourse} type="primary">Thêm khóa học</Button>} title="Khóa học">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalCourse} type="primary">Thêm khóa học</Button>} title="Khóa học">
                                     {/* Hiển thị danh sách khóa học */}
                                     {courses && courses.length > 0 ? (
                                         courses.map((item, index) => (
@@ -1032,7 +1047,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
-                                        <p>Không có khóa học nào.</p>
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
+                                             <p>Không có khóa học nào.</p>
+                                             <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-course.png"/></div>
+                                        </div>
                                     )}
 
                                     <Modal title="Khóa học" footer={null} onCancel={handleCancelCourse} open={isModalOpenCourse}>
@@ -1065,7 +1083,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1076,7 +1094,7 @@ function InforUser() {
 
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalCertificate} type="primary">Thêm chứng chỉ</Button>} title="Chứng chỉ">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalCertificate} type="primary">Thêm chứng chỉ</Button>} title="Chứng chỉ">
                                     {/* Hiển thị danh sách chứng chỉ */}
                                     {certificates && certificates.length > 0 ? (
                                         certificates.map((item, index) => (
@@ -1097,7 +1115,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
-                                        <p>Không có chứng chỉ nào.</p>
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
+                                        <p>Không có chứng chỉ.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-certificate.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Chứng chỉ" footer={null} onCancel={handleCancelCertificate} open={isModalOpenCertificate}>
@@ -1120,7 +1141,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1130,7 +1151,7 @@ function InforUser() {
                             </Col>
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalPrize} type="primary">Thêm giải thưởng</Button>} title="Giải thưởng">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalPrize} type="primary">Thêm giải thưởng</Button>} title="Giải thưởng">
                                     {/* Hiển thị danh sách giải thưởng */}
                                     {prizes && prizes.length > 0 ? (
                                         prizes.map((item, index) => (
@@ -1151,7 +1172,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
                                         <p>Không có giải thưởng nào.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-prize.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Giải thưởng" footer={null} onCancel={handleCancelPrize} open={isModalOpenPrize}>
@@ -1174,7 +1198,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1183,7 +1207,7 @@ function InforUser() {
                                 </Card>
                             </Col>
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalProject} type="primary">Thêm dự án</Button>} title="Dự án">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalProject} type="primary">Thêm dự án</Button>} title="Dự án">
                                     {/* Hiển thị danh sách dự án */}
                                     {projects && projects.length > 0 ? (
                                         projects.map((item, index) => (
@@ -1209,7 +1233,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
                                         <p>Không có dự án nào.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-project.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Dự án" footer={null} onCancel={handleCancelProject} open={isModalOpenProject}>
@@ -1262,7 +1289,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1273,7 +1300,7 @@ function InforUser() {
 
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalProduct} type="primary">Thêm sản phẩm</Button>} title="Sản phẩm">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} onClick={showModalProduct} type="primary">Thêm sản phẩm</Button>} title="Sản phẩm">
                                     {/* Hiển thị danh sách sản phẩm */}
                                     {products && products.length > 0 ? (
                                         products.map((item, index) => (
@@ -1295,7 +1322,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
-                                        <p>Không có sản phẩm nào.</p>
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
+                                             <p>Không có sản phẩm nào.</p>
+                                             <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-product.png"/></div>
+                                        </div>
                                     )}
 
                                     <Modal title="Sản phẩm" footer={null} onCancel={handleCancelProduct} open={isModalOpenProduct}>
@@ -1323,7 +1353,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>
@@ -1335,7 +1365,7 @@ function InforUser() {
                             
 
                             <Col span={24}>
-                                <Card extra={<Button onClick={showModalActivity} type="primary">Thêm hoạt động</Button>} title="Hoạt động">
+                                <Card extra={<Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }}onClick={showModalActivity} type="primary">Thêm hoạt động</Button>} title="Hoạt động">
                                     {/* Hiển thị danh sách hoạt động */}
                                     {activities && activities.length > 0 ? (
                                         activities.map((item, index) => (
@@ -1357,7 +1387,10 @@ function InforUser() {
                                             </Card>
                                         ))
                                     ) : (
+                                        <div style={{display:"flex", justifyContent:"space-around"}}>
                                         <p>Không có hoạt động nào.</p>
+                                        <div style={{alignItems:"top"}}><img width={"90px"} src="https://www.topcv.vn/v3/profile/profile-png/profile-volunteer.png"/></div>
+                                   </div>
                                     )}
 
                                     <Modal title="Hoạt động" footer={null} onCancel={handleCancelActivity} open={isModalOpenActivity}>
@@ -1390,7 +1423,7 @@ function InforUser() {
                                                 </Col>
                                                 <Col span={24}>
                                                     <Form.Item>
-                                                        <Button type="primary" htmlType="submit">Thêm</Button>
+                                                        <Button style={{ backgroundColor: 'green', borderColor: 'green', color:"white" }} type="primary" htmlType="submit">Thêm</Button>
                                                     </Form.Item>
                                                 </Col>
                                             </Row>

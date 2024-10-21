@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { getListCv } from "../../services/cvService";
 import { getCookie } from "../../helpers/cookies";
+import { Card } from "antd";
+import {
+    MenuUnfoldOutlined
+  } from '@ant-design/icons';
 
 
 function CvStatistic() {
@@ -37,11 +41,26 @@ function CvStatistic() {
         <>
             {data && (
                 <>
-                    <h3>Cv</h3>
+                    
+                    {/* <Card>
                     <p>Số lượng CV :<strong>{data.total}</strong></p>
                     <p>CV chưa đọc :<strong>{data.statusFalse}</strong></p>
                     <p>CV đã đọc :<strong>{data.statusTrue}</strong></p>
+                    </Card> */}
+                     <Card style={{height:"200px"}} title="CV ứng viên" className="info-job" >
+                    <div className="info-job__tt">
+                    <MenuUnfoldOutlined className="info-job__icon" />
+                        <div className="info-job__text">
+                            <div>{data.total} CV ứng viên đã nộp</div>
+                            <div>{data.statusFalse} CV chưa đọc</div>
+                            <div>{data.statusTrue} đã đọc</div>
+                          
+                        </div>
+                    </div>
+                    </Card>
                 </>
+                  
+                    
             )}
 
         </>

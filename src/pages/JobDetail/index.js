@@ -297,8 +297,8 @@ function JobDetail() {
                         </Card>
 
                     </Spin> */}
-                    <Modal footer={null} title="Chon CV" open={isModalOpen} onCancel={handleCancel}>
-                        <PickCv />
+                    <Modal footer={null} title="Chọn CV bạn muốn dùng để ứng tuyển" open={isModalOpen} onCancel={handleCancel}>
+                        <PickCv handleCancel={handleCancel} />
                     </Modal>
 
                 </>
