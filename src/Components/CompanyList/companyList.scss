@@ -33,6 +33,9 @@
             transform: translateY(-5px);  
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
         }
+        // &-skeleton{
+        //     background-color: red;
+        // }
         
     }
     &__row{
@@ -46,6 +49,7 @@
     &__img{
         width: 78px;
         height: 78px;
+
     }
   
 }
