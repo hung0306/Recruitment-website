@@ -1,63 +1,59 @@
 .form__login {
-    width: 500px;
-    border: none;
+  width: 500px;
+  border: none;
+  border-radius: 8px;
+  padding: 20px;
+  height: 500px;
+  display: flex;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  justify-content: center;
+
+  &-account {
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 5px;
     border-radius: 8px;
-    padding: 20px;
-    height: 500px;
-    display: flex;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-    text-align: center;
+  }
 
-    justify-content: center;
+  &-pass {
+    font-size: 20px;
+    margin-bottom: 30px;
+    padding: 5px;
+    border-radius: 8px;
+  }
 
-    &-account {
-        font-size: 20px;
-        margin-bottom: 30px;
-        margin-top: 30px;
-        padding: 5px;
-        border-radius: 8px;
+  &-name {
+    font-size: 20px;
 
+    padding: 5px;
+    border-radius: 8px;
+  }
 
-    }
+  &-submit {
+    width: 200px;
+    font-size: 20px;
+    background-color: #18dcfe;
+    padding: 3px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    // text-align: center;
+    // font-size: 40px;
+  }
 
-    &-pass {
-        font-size: 20px;
-        margin-bottom: 30px;
-        padding: 5px;
-        border-radius: 8px;
-
-    }
-
-    &-name {
-        font-size: 20px;
-
-        padding: 5px;
-        border-radius: 8px;
-    }
-
-    &-submit {
-        width: 200px;
-        font-size: 20px;
-        background-color: #18DCFE;
-        padding: 3px;
-        border-radius: 5px;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-weight: 700;
-        // text-align: center;
-        // font-size: 40px;
-    }
-
-    &-icon {
-        width: 70px;
-        height: 70px;
-    }
+  &-icon {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .form__h2 {
-    margin: 0;
-    margin-bottom: 60px;
-
+  margin: 0;
+  margin-bottom: 60px;
 }

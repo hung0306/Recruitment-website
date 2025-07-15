@@ -1,20 +1,19 @@
 .header {
-    background-color: white;
+  background-color: white;
 
-    &__logo {
-        color: green;
-        font-weight: 500;
-        font-size: 20px;
-
-    }
+  &__logo {
+    color: green;
+    font-weight: 500;
+    font-size: 20px;
+  }
 }
 
 .logo {
-    color: green !important;
+  color: green !important;
 }
 
 .content {
-    background-color: #E7FFF2;
+  background-color: #e7fff2;
 }
 
 // .container {
