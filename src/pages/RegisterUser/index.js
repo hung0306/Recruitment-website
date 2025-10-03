@@ -4,6 +4,13 @@ import * as company from "../../services/companyService";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { createInforUser } from "../../services/userService";
+import {
+  UserOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  LockOutlined,
+} from "@ant-design/icons";
+import "../Login/login.scss";
 
 function Register() {
   const navigate = useNavigate();
@@ -40,14 +47,11 @@ function Register() {
       if (result) {
         if (result) {
           setXoay(false);
-          alert("Đăng ký thành công!");
+          message.success("Đăng ký thành công!");
           navigate("/login");
         } else {
           setXoay(false);
-          messageApi.open({
-            type: "error",
-            content: "Đăng ký không thành công, vui lòng thử lại!",
-          });
+          message.error("Đăng ký không thành công, vui lòng thử lại!");
         }
       }
     }
@@ -56,10 +60,10 @@ function Register() {
   return (
     <>
       {contextHolder}
-      <Row justify="center">
-        <Col span={12}>
+      <Row justify="center" className="auth-wrap">
+        <Col xs={24} sm={20} md={14} lg={10}>
           <Spin spinning={xoay} tip="vui lòng chờ...">
-            <Card title="Đăng ký tài khoản">
+            <Card className="auth-card" title="Đăng ký tài khoản">
               <Form onFinish={onFinish} layout="vertical">
                 <Form.Item
                   label="Họ tên"
@@ -67,10 +71,15 @@ function Register() {
                   rules={[
                     {
                       required: true,
+                      message: "Vui lòng nhập họ tên",
                     },
                   ]}
                 >
-                  <Input />
+                  <Input
+                    size="large"
+                    prefix={<UserOutlined />}
+                    placeholder="Nguyễn Văn A"
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -84,11 +93,19 @@ function Register() {
                     },
                   ]}
                 >
-                  <Input />
+                  <Input
+                    size="large"
+                    prefix={<MailOutlined />}
+                    placeholder="you@example.com"
+                  />
                 </Form.Item>
 
                 <Form.Item label="Số điện thoại" name="phone">
-                  <Input />
+                  <Input
+                    size="large"
+                    prefix={<PhoneOutlined />}
+                    placeholder="09xx xxx xxx"
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -101,11 +118,15 @@ function Register() {
                     },
                   ]}
                 >
-                  <Input.Password />
+                  <Input.Password
+                    size="large"
+                    prefix={<LockOutlined />}
+                    placeholder="••••••••"
+                  />
                 </Form.Item>
 
-                <Form.Item>
-                  <Button type="primary" htmlType="submit">
+                <Form.Item className="auth-actions">
+                  <Button block size="large" type="primary" htmlType="submit">
                     Đăng ký
                   </Button>
                 </Form.Item>

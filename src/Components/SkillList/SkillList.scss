@@ -1,4 +1,17 @@
 .tagcss:hover {
-  background-color: rgb(128, 0, 47);
-  color: white;
+  background-color: #00b14f;
+  border-color: #00b14f;
+  color: #fff;
+}
+
+.tagcss {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.skilllist-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getListTag } from "../../services/tagService";
-import { Link } from "react-router-dom";
+// removed Link to avoid unintended navigation when clicking tags
 import { Tag } from "antd";
 import "./SkillList.scss";
 
@@ -19,22 +19,27 @@ function SkillList() {
   console.log(tags);
   return (
     <>
-      <div>
+      <div className="skilllist-wrap">
         {tags.map((item) => (
-          <Link to={`Search?keyword=${item.value || ""}`} key={item.key}>
-            <Tag
-              className="tagcss"
-              style={{
-                fontSize: "12px",
-                height: "30px",
-                width: "70px",
-                margin: "60px 7px",
-                fontWeight: "bold",
-              }}
-            >
-              {item.value}
-            </Tag>
-          </Link>
+          <Tag
+            key={item.key}
+            className="tagcss"
+            style={{
+              fontSize: "12px",
+              height: "30px",
+              margin: "10px 7px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              const searchEvent = new CustomEvent("inline-search", {
+                detail: { city: "", keyword: item.value || "" },
+              });
+              window.dispatchEvent(searchEvent);
+            }}
+          >
+            {item.value}
+          </Tag>
         ))}
       </div>
     </>

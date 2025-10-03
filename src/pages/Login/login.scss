@@ -1,3 +1,12 @@
+.auth-wrap {
+  padding: 24px 16px;
+}
+
+.auth-card {
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
 .form__login {
   width: 500px;
   border: none;

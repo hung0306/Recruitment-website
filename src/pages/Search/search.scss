@@ -1,5 +1,14 @@
-.item-search{
-    width: 1200px;
-    margin: auto;
-    margin-bottom: 30px;
+.item-search {
+  padding: 8px 16px;
+}
+
+.item__job .ant-tag {
+  background: #f1fff6;
+  border-color: #d6f5e3;
+  color: #067a3f;
+  font-weight: 600;
+}
+.item-search {
+  width: 1200px;
+  margin: 30px auto; /* cân khoảng cách trên và dưới */
 }

@@ -2,7 +2,7 @@ import * as company from "../../services/companyService";
 import { useNavigate } from "react-router-dom";
 import "./login.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Card, Col, Form, Input, Row, Spin } from "antd";
+import { Button, Card, Col, Form, Input, Row, Spin, message } from "antd";
 import { setCookie } from "../../helpers/cookies";
 import { checkLogin } from "../../actions/login";
 import { useState } from "react";
@@ -36,6 +36,7 @@ function Login() {
         setCookie("email", data[0].email, time);
         setCookie("token", data[0].token, time);
         setCookie("role", userRole, time);
+        message.success("Đăng nhập thành công!");
         navigate("/admin");
       } else if (userRole === "user") {
         setCookie("id", data[0].id, time);
@@ -43,6 +44,7 @@ function Login() {
         setCookie("email", data[0].email, time);
         setCookie("token", data[0].token, time);
         setCookie("role", userRole, time);
+        message.success("Đăng nhập thành công!");
         navigate("/");
         // const result = createInforUser()
       } else {
@@ -51,44 +53,49 @@ function Login() {
       }
     } else {
       setXoay(false);
-      alert("Sai tài khoản hoặc mật khẩu");
+      message.error("Sai tài khoản hoặc mật khẩu");
     }
   };
 
   return (
     <>
-      <Row justify="center">
-        <Col span={12}>
+      <Row justify="center" className="auth-wrap">
+        <Col xs={24} sm={18} md={12} lg={8}>
           <Spin spinning={xoay} tip="vui lòng chờ...">
-            <Card title="Đăng nhập">
+            <Card className="auth-card" title="Đăng nhập">
               <Form onFinish={onFinish} layout="vertical">
                 <Form.Item
-                  label={
-                    <div>
-                      <MailOutlined />
-                      <span style={{ marginLeft: "20px" }}>Email</span>
-                    </div>
-                  }
+                  label="Email"
                   name="email"
+                  rules={[
+                    { required: true, message: "Vui lòng nhập Email" },
+                    { type: "email", message: "Email không hợp lệ" },
+                  ]}
                 >
-                  <Input />
+                  <Input
+                    size="large"
+                    prefix={<MailOutlined />}
+                    placeholder="you@example.com"
+                  />
                 </Form.Item>
+
                 <Form.Item
-                  label={
-                    <div>
-                      <LockOutlined />
-                      <span style={{ marginLeft: "20px" }}>Password</span>
-                    </div>
-                  }
+                  label="Mật khẩu"
                   name="password"
+                  rules={[
+                    { required: true, message: "Vui lòng nhập mật khẩu" },
+                  ]}
                 >
-                  <Input.Password />
-                </Form.Item>{" "}
-                 
-                <Form.Item>
-                  <Button htmlType="submit" type="primary">
-                    {" "}
-                      Đăng nhập
+                  <Input.Password
+                    size="large"
+                    prefix={<LockOutlined />}
+                    placeholder="••••••••"
+                  />
+                </Form.Item>
+
+                <Form.Item className="auth-actions">
+                  <Button block size="large" htmlType="submit" type="primary">
+                    Đăng nhập
                   </Button>
                 </Form.Item>
               </Form>

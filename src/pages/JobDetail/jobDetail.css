@@ -1,100 +1,103 @@
 .card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-    
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
 }
 .title_job_des {
-  
-    color: #263a4d;
-    
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: -.2px;
-    line-height: 28px;
-    margin-bottom: 30px;
-    
-   
-    
+  color: #263a4d;
+
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  margin-bottom: 30px;
 }
 .info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 .icon {
-    width: 45px;
-    height: 45px;
-    background-color: #00b14f;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 18px;
+  width: 45px;
+  height: 45px;
+  background-color: #00b14f;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 18px;
 }
 .icon img {
-    width: 34px;
-    height: 34px;
+  width: 34px;
+  height: 34px;
 }
 .text {
-    font-size: 14px;
+  font-size: 14px;
 }
 .deadline {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 15px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
 }
 .buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 .apply-btn {
-    background-color: #00b14f;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-   width: 500px;
-    cursor: pointer;
-    font-size: 19px;
-    border-radius: 8px;
-    font-weight: 500;
-   
+  background-color: #00b14f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  width: 500px;
+  cursor: pointer;
+  font-size: 19px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 .save-btn {
-    border: 1px solid #00b14f;
-    background-color: white;
-    color: #00b14f;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+  border: 1px solid #00b14f;
+  background-color: white;
+  color: #00b14f;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.wrap{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-   
+.wrap {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
-.text__title{
-    color: #263a4d;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: .14px;
-    line-height: 22px;
+.text__title {
+  color: #263a4d;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+  line-height: 22px;
 }
-.text__des{
-    color: #263a4d;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: bold;
-    letter-spacing: .14px;
-    line-height: 22px;
+.text__des {
+  color: #263a4d;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.14px;
+  line-height: 22px;
 }
-.des-job{
-   padding: 40px;
+.des-job {
+  padding: 40px;
+}
+
+/* Modal Pick CV - clearer layout */
+.cv-card.ant-card {
+  border-radius: 10px;
+  border: 1px solid #eef2f7;
+}
+.cv-card.ant-card-hoverable:hover {
+  border-color: #22c55e;
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.18);
 }

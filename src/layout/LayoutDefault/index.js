@@ -19,64 +19,62 @@ function LayoutDefault() {
 
   return (
     <>
-      <Layout>
-        <Header className="header">
-          <Row justify="space-between">
-            <Col className="header__logo" span={16}>
-              <Link className="logo" to="/">
+      <Layout className="site-layout">
+        <Header className="site-header" role="banner">
+          <div
+            className="site-header__container"
+            role="navigation"
+            aria-label="Header"
+          >
+            <div className="site-header__logo">
+              <Link className="site-logo" to="/" aria-label="Trang chủ">
                 <img
-                  style={{ height: "64px" }}
+                  style={{ height: "40px" }}
+                  alt="Logo"
+                  loading="eager"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABSta4ztO2Z73YCEvZDFgCPesndhqt-seBg&s"
                 />
               </Link>
-            </Col>
-            <Col span={8}>
-              <Row gutter={[10]}>
-                {token ? (
-                  <>
-                    {role === "admin" && (
-                      <Col>
-                        <Link to="admin">
-                          <Button type="primary">Quản lý</Button>
-                        </Link>
-                      </Col>
-                    )}
-                    {role === "user" && (
-                      <Col style={{ zIndex: "999" }} span={16}>
-                        <MenuIn4User />
-                      </Col>
-                    )}
-                    <Col span={8}>
-                      <Link to="/logout">
-                        <Button>Đăng xuất</Button>
-                      </Link>
-                    </Col>
-                  </>
-                ) : (
-                  <>
-                    <Col span={8}>
-                      <Link to="/login">
-                        <Button>Đăng nhập</Button>
-                      </Link>
-                    </Col>
-                    <Col span={8}>
-                      <Link to="/registerUser">
-                        <Button>Đăng ký</Button>
-                      </Link>
-                    </Col>
-                    <Col span={8}>
-                      <Link to="/Register">
-                        <Button type="primary">Đăng ký cho doanh nghiệp</Button>
-                      </Link>
-                    </Col>
-                  </>
-                )}
-              </Row>
-            </Col>
-          </Row>
+            </div>
+            <div className="site-header__actions">
+              {token ? (
+                <>
+                  {role === "admin" && (
+                    <Link to="admin" aria-label="Đi tới trang quản lý">
+                      <Button size="large" type="primary">
+                        Quản lý
+                      </Button>
+                    </Link>
+                  )}
+                  {role === "user" && (
+                    <div className="site-header__menu">
+                      <MenuIn4User />
+                    </div>
+                  )}
+                  <Link to="/logout" aria-label="Đăng xuất">
+                    <Button size="large">Đăng xuất</Button>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" aria-label="Đăng nhập">
+                    <Button size="large">Đăng nhập</Button>
+                  </Link>
+                  <Link to="/registerUser" aria-label="Đăng ký ứng viên">
+                    <Button size="large">Đăng ký</Button>
+                  </Link>
+                  <Link to="/Register" aria-label="Đăng ký cho doanh nghiệp">
+                    <Button size="large" type="primary">
+                      Đăng ký cho doanh nghiệp
+                    </Button>
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
         </Header>
 
-        <Content className="content">
+        <Content className="site-content">
           <Outlet />
         </Content>
         <div>

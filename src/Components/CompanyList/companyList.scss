@@ -1,8 +1,9 @@
 .listcompany {
-  margin-top: 40px;
-  font-size: 30px;
+  margin-top: 48px;
+  font-size: 32px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 36px;
+  font-weight: 600;
 
   &__company {
     font-size: 18x;
@@ -18,18 +19,17 @@
   }
   &__item {
     box-sizing: border-box;
-    width: calc(100% / 3 - 60px);
-    display: flex;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    width: auto;
+    display: block;
     background-color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px 22px;
+    border-radius: 12px;
+    border: 1px solid #eef3ef;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
     }
     // &-skeleton{
     //     background-color: red;
@@ -37,27 +37,50 @@
   }
   &__row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 16px;
     width: 100%;
   }
   &__img {
-    width: 78px;
-    height: 78px;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 8px;
   }
 }
 .list {
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 .container_company {
-  width: 1100px;
-  margin: auto;
+  width: 100%;
+  max-width: 1200px; /* khớp với chiều rộng item job */
+  margin: 0 auto;
+  padding: 0; /* bỏ padding để thẳng hàng */
 }
 
 .companyName {
   color: black;
   font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  .container_company {
+    width: 100%;
+  }
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .listcompany {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+  .list {
+    grid-template-columns: 1fr;
+  }
 }

@@ -20,8 +20,8 @@ import JobDetailAdmin from "../pages/JobManage/JobDetailAdmin";
 import CvManage from "../pages/CvManage";
 import CvDetail from "../pages/CvManage/CvDetail";
 import RegisterUser from "../pages/RegisterUser";
-import Profile from "../pages/Profile"
-import LayoutUser from "../layoutUser";
+import Profile from "../pages/Profile";
+// import LayoutUser from "../layoutUser";
 import CreatedCV from "../pages/CreatedCV";
 import JobApply from "../pages/JobApply";
 import InforUser from "../pages/InforUser";
@@ -32,175 +32,127 @@ import CreateCV1 from "../pages/CreatedCV/cv1";
 import EditCvUser from "../pages/CvListUser/editCvUser";
 import CreateCV2 from "../pages/CreatedCV/cv2";
 
-
-
-
-
-
-
-
 export const routes = [
-    {
-        path: "/",
-        element: <LayoutDefault />,
-        children: [
-            {
-                index: true,
-                element: <Home />
+  {
+    path: "/",
+    element: <LayoutDefault />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
 
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "registerUser",
+        element: <RegisterUser />,
+      },
 
-            },
-
-
-
-            {
-                path: "login",
-                element: <Login />
-
-
-            },
-            {
-                path: "registerUser",
-                element: <RegisterUser />
-
-
-            },
-
-
-            {
-                path: "register",
-                element: <Register />
-
-
-            },
-            {
-                path: "logout",
-                element: <Logout />
-
-
-            },
-            {
-                path: "job/:id",
-                element: <JobDetail />
-            },
-            {
-                path: "*",
-                element: <Navigate to="/" />
-            },
-            {
-                path: "Search",
-                element: <Search />
-            },
-            {
-                path: "company",
-                element: <Company />
-            },
-            {
-                path: "company/:id",
-                element: <CompanyDetail />
-            },
-            {
-                element:<PrivateRouter/>,
-                children:[
-                    {
-                        
-                            path:"/profile",
-                            element: <InforUser/>
-                        
-                     
-                    },
-                //     {
-                        
-                //         path:"/create-CV1",
-                //         element: <CreateCV1/>
-                    
-                 
-                // },
-                {
-                        
-                    path:"/create-CV1",
-                    element: <CreateCV2/>
-                
-             
-            },
-                // {
-                //     path:"/template",
-                //     element:<Templatecv/>
-
-                // },
-                {
-                        
-                    path:"/manager-Cv-user",
-                    element: <CvListUser/>
-             
-            },
-
-            {
-                        
-                path:"/editCvUser/:id",
-                element: <EditCvUser/>
-         
-        },
-
-                ]
-            }
-
-
-
-
-
-
-        ]
-    },
-    {
-
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
+      },
+      {
+        path: "job/:id",
+        element: <JobDetail />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" />,
+      },
+      {
+        path: "Search",
+        element: <Search />,
+      },
+      {
+        path: "company",
+        element: <Company />,
+      },
+      {
+        path: "company/:id",
+        element: <CompanyDetail />,
+      },
+      {
         element: <PrivateRouter />,
         children: [
-            {
-                element: <LayoutAdmin />,
-                children: [
-                    {
-                        path: "admin",
-                        element: <Dashboard />
-                    },
-                    {
-                        path: "info-company",
-                        element: <InforCompany />
-                    },
-                    {
-                        path: "job-manage",
-                        element: <JobManage />
-                    },
-                    {
-                        path: "create-job",
-                        element: <CreateJob />
-                    },
-                    {
-                        path: "detail-job/:id",
-                        element: <JobDetailAdmin />
-                    },
-                    {
-                        path: "cv-manage",
-                        element: <CvManage />
-                    },
-                    {
-                        path: "detail-cv/:id",
-                        element: <CvDetail />
-                    },
+          {
+            path: "/profile",
+            element: <InforUser />,
+          },
+          //     {
 
+          //         path:"/create-CV1",
+          //         element: <CreateCV1/>
 
+          // },
+          {
+            path: "/template",
+            element: <Templatecv />,
+          },
+          {
+            path: "/create-CV1",
+            element: <CreateCV1 />,
+          },
+          {
+            path: "/create-CV2",
+            element: <CreateCV2 />,
+          },
+          {
+            path: "/manager-Cv-user",
+            element: <CvListUser />,
+          },
 
-
-                ]
-
-            },
-           
-
-        ]
-
-
-    }
-
-
+          {
+            path: "/editCvUser/:id",
+            element: <EditCvUser />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    element: <PrivateRouter />,
+    children: [
+      {
+        element: <LayoutAdmin />,
+        children: [
+          {
+            path: "admin",
+            element: <Dashboard />,
+          },
+          {
+            path: "info-company",
+            element: <InforCompany />,
+          },
+          {
+            path: "job-manage",
+            element: <JobManage />,
+          },
+          {
+            path: "create-job",
+            element: <CreateJob />,
+          },
+          {
+            path: "detail-job/:id",
+            element: <JobDetailAdmin />,
+          },
+          {
+            path: "cv-manage",
+            element: <CvManage />,
+          },
+          {
+            path: "detail-cv/:id",
+            element: <CvDetail />,
+          },
+        ],
+      },
+    ],
+  },
 ];
-

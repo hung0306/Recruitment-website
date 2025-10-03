@@ -1,7 +1,7 @@
-import { Menu } from 'antd';
+import { Menu } from "antd";
 import { Link } from "react-router-dom";
-import { EditOutlined, UserAddOutlined, MenuOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { EditOutlined, UserAddOutlined, MenuOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import "./MenuIn4User.scss";
 
 function MenuIn4User() {
@@ -20,38 +20,38 @@ function MenuIn4User() {
 
   const items = [
     {
-      key: '1',
+      key: "1",
       label: <div style={{ fontWeight: "bold" }}>Quản lý tài khoản</div>,
       children: [
         {
-          key: '2',
+          key: "2",
           label: (
             <Link to="/profile" onClick={handleClick}>
-              <EditOutlined style={{ color: 'green', marginRight: '8px' }} />
-              <span style={{ color: 'black' }}>Thông tin cá nhân</span>
+              <EditOutlined style={{ color: "green", marginRight: "8px" }} />
+              <span style={{ color: "black" }}>Thông tin cá nhân</span>
             </Link>
           ),
-          type: 'group',
+          type: "group",
         },
         {
-          key: '3',
+          key: "3",
           label: (
-            <Link to="/create-CV1" onClick={handleClick}>
-              <UserAddOutlined style={{ color: 'green', marginRight: '8px' }} />
-              <span style={{ color: 'black' }}>Tạo CV mới</span>
+            <Link to="/template" onClick={handleClick}>
+              <UserAddOutlined style={{ color: "green", marginRight: "8px" }} />
+              <span style={{ color: "black" }}>Tạo CV mới</span>
             </Link>
           ),
-          type: 'group',
+          type: "group",
         },
         {
-          key: '4',
+          key: "4",
           label: (
             <Link to="/manager-Cv-user" onClick={handleClick}>
-              <MenuOutlined style={{ color: 'green', marginRight: '8px' }} />
-              <span style={{ color: 'black' }}>Quản lý CV của bạn</span>
+              <MenuOutlined style={{ color: "green", marginRight: "8px" }} />
+              <span style={{ color: "black" }}>Quản lý CV của bạn</span>
             </Link>
           ),
-          type: 'group',
+          type: "group",
         },
       ],
     },

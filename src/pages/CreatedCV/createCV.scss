@@ -1,125 +1,232 @@
 .section {
-    margin-bottom: 20px;
-    
+  margin-bottom: 20px;
 }
-.cv{
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-    background-color: white;
-    margin-top: 20px!important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-    border-radius: 8px; /* Bo tròn góc cho đẹp hơn */
+.cv {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  margin-top: 20px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  border-radius: 8px; /* Bo tròn góc cho đẹp hơn */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+/* CV 1: Classic (vạch trái xanh, header chữ lớn) */
+.cv--classic {
+  border-left: 8px solid #2e7d32;
+}
+.cv--classic .section-header {
+  border-color: #2e7d32;
+}
+
+/* ===== CV1 (Classic) refined layout ===== */
+.cv1 {
+  padding: 24px;
+}
+.cv1 .ant-card {
+  border-radius: 12px;
+  border: 1px solid #eef2f7;
+}
+.cv1-sidebar {
+  text-align: center;
+}
+.cv1-upload-hint {
+  margin-top: 8px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.cv1-contact .ant-input-affix-wrapper {
+  border-radius: 10px;
+}
+.cv1-main {
+  padding-top: 8px;
+}
+.cv1-section__title {
+  margin: 0 0 8px 0;
+}
+
+/* CV 2: Modern (header top strip, labels đậm, spacing rộng) */
+.cv--modern {
+  border-top: 10px solid #1e88e5;
+  border-radius: 0 0 8px 8px;
+}
+.cv--modern .section-header {
+  border-color: #1e88e5;
+}
+.cv--modern .personal-info__name {
+  font-size: 28px;
+}
+.cv--modern .ant-card,
+.cv--classic .ant-card {
+  border-radius: 10px;
+  border: 1px solid #eef2f7;
 }
 .section-header {
-    border-bottom: 2px solid black;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
 }
 .section-content {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .column {
-    width: 48%;
+  width: 48%;
 }
 .timeline {
-    position: relative;
-    padding-left: 20px;
+  position: relative;
+  padding-left: 20px;
 }
 .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 5px;
-    bottom: 0;
-    width: 2px;
-    background: #000;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 0;
+  width: 2px;
+  background: #000;
 }
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -24px;
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #000;
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
 }
 .personal-info {
-    border: 2px solid #5cb85c;
-    padding: 16px;
-    border-radius: 4px;
-    margin-bottom: 24px;
-  }
-  
-  .personal-info__name {
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 0;
-  }
-  .personal-info__phone{
-    margin: 0;
-  }
-  
-  .personal-info__position {
-    font-style: italic;
-    color: gray;
-  }
-  
-  .personal-info__contact {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contact-item {
-    display: flex;
-    
-    justify-content: center;
-   
-  
-    
-  }
-  
-  .contact-item .icon {
-    margin-right: 8px;
-    font-size: 15px;
-    color: #333;
-  }
-  
-  .add-section-btn {
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
-    background-color: #5cb85c;
-    border-color: #5cb85c;
-    
-  }
-  
-  .add-section-btn:hover {
-    background-color: #4cae4c;
-    border-color: #4cae4c;
-  }
-  .icon{
-    height: 27px;
-    width: 20px;
-    background-color: black;
-    color: white!important;
-  
-   
-  }
+  border: 1px solid #e5e7eb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  background: #fafafa;
+}
 
-  .personal_item{
-    border-right: 1px solid black;
-    padding: 0px 15px;
+.personal-info__name {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 0;
+}
+.personal-info__phone {
+  margin: 0;
+}
+
+.personal-info__position {
+  font-style: italic;
+  color: gray;
+}
+
+.personal-info__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.contact-item .icon {
+  margin-right: 0;
+  font-size: 14px;
+  color: #2563eb;
+}
+
+.add-section-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.add-section-btn:hover {
+  background-color: #4cae4c;
+  border-color: #4cae4c;
+}
+.icon {
+  height: 28px;
+  width: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e8f0fe;
+  color: #2563eb !important;
+}
+
+.personal_item {
+  border-right: 1px solid #e5e7eb;
+  padding: 0px 15px;
+}
+.border__none {
+  border: none;
+  outline: none;
+}
+
+/* Inputs & Textareas inside CV */
+.cv .ant-input,
+.cv .ant-input-affix-wrapper,
+.cv .ant-input-textarea textarea {
+  border-radius: 8px;
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+.cv .ant-input:focus,
+.cv .ant-input-focused,
+.cv .ant-input-affix-wrapper:focus,
+.cv .ant-input-affix-wrapper-focused,
+.cv .ant-input-textarea textarea:focus {
+  border-color: #60a5fa !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+  background: #ffffff;
+}
+
+/* Buttons */
+.cv .ant-btn-primary {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border: none;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
+}
+.cv .ant-btn-primary:hover {
+  filter: brightness(1.05);
+}
+.cv .ant-btn-dashed {
+  border-color: #cbd5e1;
+}
+
+/* Spacing tweaks */
+.cv .ant-form-item {
+  margin-bottom: 14px;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .section-content {
+    margin-left: 0;
   }
-  .border__none{
-    border: none;;
-    outline: none;
+  .personal_item {
+    border-right: 0;
+    padding: 0;
+    margin-bottom: 12px;
   }
-  
+}
