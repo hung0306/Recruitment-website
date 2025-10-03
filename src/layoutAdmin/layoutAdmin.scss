@@ -1,47 +1,43 @@
- .headerr {
-     display: flex;
-     border-bottom: 1px solid #ddd;
-     background-color: white;
+.headerr {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+}
 
- }
+.content {
+  padding: 16px 24px; /* padding đồng bộ cho tất cả trang admin */
+}
 
-//  .content {
-//      padding: 20px;
-//  }
+.headerr__logo {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
 
- .headerr__logo {
-     width: 200px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     transition: all 0.2s;
+  border-right: 1px solid #ddd;
+}
 
-     border-right: 1px solid #ddd;
+.headerr__logo--collapsed {
+  width: 80px;
+  transition: all 0.2s;
+}
 
- }
+.headerr__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 20px;
+}
 
- .headerr__logo--collapsed {
-     width: 80px;
-     transition: all 0.2s;
+.headerr__nav-left {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
 
- }
-
- .headerr__nav {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     flex: 1;
-     padding: 0 20px;
- }
-
- .headerr__nav-left {
-     display: flex;
-     align-items: center;
-     font-size: 20px;
-
- }
-
- .headerr__collapse {
-     margin-right: 20px;
-     cursor: pointer;
- }
+.headerr__collapse {
+  margin-right: 20px;
+  cursor: pointer;
+}

@@ -91,7 +91,11 @@ function PickCv(props) {
           </Row>
         </>
       ) : (
-        <Empty description="Bạn chưa có CV nào để ứng tuyển." />
+        <Empty description="Bạn chưa có CV nào để ứng tuyển.">
+          <Link to="/template">
+            <Button type="primary">Tạo CV mới</Button>
+          </Link>
+        </Empty>
       )}
     </>
   );

@@ -1,17 +1,18 @@
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function Goback() {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
 
-    const navigate = useNavigate();
-    const handleBack = () => {
-        navigate(-1)
-    }
-
-    return (
-        <>
-            <Button style={{marginTop:"20px"}} onClick={handleBack}>Trở lại</Button>
-        </>
-    )
+  return (
+    <>
+      <Button style={{ marginTop: "20px" }} onClick={handleBack}>
+        Trở lại
+      </Button>
+    </>
+  );
 }
-export default Goback
+export default Goback;

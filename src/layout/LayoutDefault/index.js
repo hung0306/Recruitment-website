@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux";
 import { getCookie } from "../../helpers/cookies";
-import "../layout.scss";
-
+import "./layout.scss";
 import { Button, Col, Layout, Row } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import MenuIn4User from "../../Components/MenuIn4User";
 import Footer1 from "../../Components/Footer/footer";
-// import logoTimviec from "../../image/logotimviec.png"
 
 const { Header, Footer, Content } = Layout;
 

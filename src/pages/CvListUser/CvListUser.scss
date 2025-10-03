@@ -2,47 +2,47 @@
 
 /* Container holding all CV cards */
 .cv-list-container {
-    background-color: #f9f9f9; /* Light gray background */
-    padding: 20px;
-    border-radius: 8px;
-    margin:  auto;
-    max-width: 1000px;
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 20px;
+  border-radius: 8px;
+  margin: auto;
+  max-width: 1000px;
 }
 
 /* Individual CV card styling */
 .cv-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 /* Hover effect for each CV card */
 .cv-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Styling for the delete button */
 .delete-btn {
-    color: red;
-    font-size: 16px;
+  color: red;
+  font-size: 16px;
 }
 
 /* CV card title and description */
 .cv-card strong {
-    font-size: 18px;
-    color: #333;
+  font-size: 18px;
+  color: #333;
 }
 
 .cv-description {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
-.buttonadd{
-    background-color: green ;
-    color: white;
-    font-weight: 600;
-    border-radius: 10px;
+.buttonadd {
+  background-color: green;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
 }

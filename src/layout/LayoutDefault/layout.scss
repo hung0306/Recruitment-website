@@ -42,6 +42,13 @@
   align-items: center;
   gap: 12px;
 }
+.site-header__logo {
+  display: flex;
+  align-items: center; /* center image vertically inside its wrapper */
+}
+.site-header__logo img {
+  display: block; /* remove baseline gap that can look off-center */
+}
 .site-header__actions .ant-btn {
   border-radius: 8px;
 }

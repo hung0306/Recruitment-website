@@ -1,11 +1,13 @@
-import CvList from "./CvList"
+import CvList from "./CvList";
 
 function CvManage() {
-    return (
-        <>
-            <h1>Danh sách CV</h1>
-            <CvList />
-        </>
-    )
+  return (
+    <>
+      <div style={{ padding: "16px 24px" }}>
+        <h1 style={{ marginBottom: 16 }}>Danh sách CV</h1>
+        <CvList />
+      </div>
+    </>
+  );
 }
-export default CvManage
+export default CvManage;

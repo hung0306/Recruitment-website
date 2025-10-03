@@ -1,8 +1,4 @@
-function JobApply(){
-    return(
-        <>
-        he
-        </>
-    )
+function JobApply() {
+  return <>he</>;
 }
-export default JobApply
+export default JobApply;

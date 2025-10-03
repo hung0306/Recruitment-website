@@ -70,7 +70,7 @@ function CvListUser() {
                 >
                   CV đã tạo
                 </div>
-                <Link to="/create-CV1">
+                <Link to="/template">
                   <Button className="buttonadd">
                     <PlusOutlined /> Tạo mới
                   </Button>

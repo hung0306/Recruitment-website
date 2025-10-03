@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Jobitem.scss";
 
-function Jobitem({ item }) {
+function Jobitem({ item, hideApply = false }) {
   console.log(item);
 
   // Kiểm tra nếu item không tồn tại hoặc không có status
@@ -95,11 +95,13 @@ function Jobitem({ item }) {
           <span>Không có ngôn ngữ nào.</span>
         )}
       </div>
-      <div className="apply-row">
-        <Link to={`/job/${item.id}`} className="apply-link">
-          Ứng tuyển
-        </Link>
-      </div>
+      {!hideApply && (
+        <div className="apply-row">
+          <Link to={`/job/${item.id}`} className="apply-link">
+            Ứng tuyển
+          </Link>
+        </div>
+      )}
     </Card>
   );
 }

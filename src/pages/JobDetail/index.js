@@ -103,11 +103,11 @@ function JobDetail() {
       {contextHolder}
       {job && (
         <>
-          <div class="card">
+          <div className="card">
             <h1 className="title_job_des ">{`${job.name}/ Thu nhập up to ${job.salary}$`}</h1>
             <div className="wrap">
-              <div class="info">
-                <div class="icon">
+              <div className="info">
+                <div className="icon">
                   <img
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z'/%3E%3C/svg%3E"
                     alt="Salary icon"
@@ -115,11 +115,11 @@ function JobDetail() {
                 </div>
                 <div>
                   <div className="text__title">Mức lương</div>
-                  <div class="text__des">{`Tới ${job.salary}$`}</div>
+                  <div className="text__des">{`Tới ${job.salary}$`}</div>
                 </div>
               </div>
-              <div class="info">
-                <div class="icon">
+              <div className="info">
+                <div className="icon">
                   <img
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E"
                     alt="Location icon"
@@ -128,14 +128,14 @@ function JobDetail() {
                 <div>
                   <div className="text__title">Địa điểm</div>
                   <div className="text__des">
-                    {job.city.map((item) => (
-                      <strong>{`${item}, `}</strong>
+                    {job.city.map((item, index) => (
+                      <strong key={`${item}-${index}`}>{`${item}, `}</strong>
                     ))}
                   </div>
                 </div>
               </div>
-              <div class="info">
-                <div class="icon">
+              <div className="info">
+                <div className="icon">
                   <img
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z'/%3E%3C/svg%3E"
                     alt="Experience icon"
@@ -143,16 +143,16 @@ function JobDetail() {
                 </div>
                 <div>
                   <div className="text__title">Kinh nghiệm</div>
-                  <div class="text__des">1 năm</div>
+                  <div className="text__des">1 năm</div>
                 </div>
               </div>
             </div>
 
-            <div class="buttons">
-              <button onClick={showModal} class="apply-btn">
+            <div className="buttons">
+              <button onClick={showModal} className="apply-btn">
                 <SendOutlined /> Ứng tuyển ngay
               </button>
-              <button class="save-btn">Lưu tin</button>
+              <button className="save-btn">Lưu tin</button>
             </div>
           </div>
 
@@ -163,8 +163,8 @@ function JobDetail() {
             <h2>Yêu Cầu ứng viên</h2>
             <p>
               Hiểu biết các ngôn ngữ lập trình{" "}
-              {job.tags.map((item) => (
-                <strong>{`${item}, `}</strong>
+              {job.tags.map((item, index) => (
+                <strong key={`${item}-${index}`}>{`${item}, `}</strong>
               ))}
             </p>
 
@@ -182,7 +182,7 @@ function JobDetail() {
             <h2>Cách thức ứng tuyển</h2>
             <p>
               Ứng viên nộp hồ sơ trực tuyến bằng cách bấm{" "}
-              <span class="highlight">Ứng tuyển</span>{" "}
+              <span className="highlight">Ứng tuyển</span>{" "}
             </p>
           </div>
 

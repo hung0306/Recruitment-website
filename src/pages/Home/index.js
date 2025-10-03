@@ -149,7 +149,22 @@ function Home() {
             </div>
           </section>
         )}
-        {isSearching && jobs && jobs.length > 0 && <SearchList data={jobs} />}
+        {isSearching && (
+          <div
+            className="home-results-banner"
+            style={{
+              background: "#f0fdf4",
+              border: "1px solid #bbf7d0",
+              padding: 12,
+              borderRadius: 8,
+              maxWidth: 1200,
+              margin: "24px auto 0",
+            }}
+          >
+            Tìm thấy {jobs.length} việc làm phù hợp
+          </div>
+        )}
+        {isSearching && jobs && <SearchList data={jobs} />}
         <CompanyList />
       </div>
     </>

@@ -34,12 +34,12 @@
 //   const idUser = getCookie('id');
 
 //   const [info, setInfo] = useState();
-//   const [avatar, setAvatar] = useState(null); 
-//   const [imageName, setImageName] = useState(''); 
+//   const [avatar, setAvatar] = useState(null);
+//   const [imageName, setImageName] = useState('');
 
 //   useEffect(() => {
 //     const fetchApi = async () => {
-     
+
 //         const response = await getDetailUser(idUser);
 //         if (response) {
 //           setInfo(response);
@@ -47,34 +47,33 @@
 //             setAvatar(response.avatarUrl);
 //           }
 //         }
-    
+
 //     };
 //     fetchApi();
 //   }, []);
 //   console.log(info);
-  
 
 //   const onFinish = async (values) => {
-   
+
 //     const data = { ...values, avatar: imageName, idUser :idUser  };
-   
+
 //       const result = await createCv(data);
 //       console.log(result);
-      
+
 //       if (result) {
 //         message.success('CV created successfully');
-       
+
 //         form.resetFields();
 //         setAvatar(null);
 //         setImageName('');
 //       } else {
 //         message.error('Failed to create CV');
 //       }
-    
+
 //   };
 
 //   const handleUpload = (file) => {
-  
+
 //     const isImage = file.type.startsWith('image/');
 //     if (!isImage) {
 //       message.error('You can only upload image files!');
@@ -94,10 +93,9 @@
 //       setAvatar(reader.result);
 //     };
 //     reader.readAsDataURL(file);
-  
+
 //     setImageName(file.name);
 
-    
 //     return false;
 //   };
 
