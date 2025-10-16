@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Card, Button, Row, Col, notification, Empty, Typography } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { useEffect, useState } from "react";
+import { Card, Button, Row, Col, notification, Empty } from "antd";
+
 import { getListCvUser, submitCv } from "../../services/cvService";
 import { getCookie } from "../../helpers/cookies";
 // import "./CvListUser.scss"

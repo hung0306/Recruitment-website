@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getCompany } from "../../services/companyService";
 import { Col, Row, Card } from "antd";
 import { Link } from "react-router-dom";
-import Goback from "../../Components/Goback";
 
 function Company() {
   const [data, setData] = useState([]);
@@ -15,7 +14,6 @@ function Company() {
   }, []);
   return (
     <>
-      <Goback />
       <h1 className="center">Danh sách công ty</h1>
       <Row gutter={[20, 20]}>
         {data.map((item) => (

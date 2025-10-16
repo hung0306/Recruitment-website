@@ -4,17 +4,13 @@ import {
   changeSttCv,
   getDetailCv,
   getDetailCvUser,
-  getListCv,
-  getListCvUser,
 } from "../../services/cvService";
 
 import { getDetailJob } from "../../services/jobService";
 
-import Goback from "../../Components/Goback";
-
 import { getCookie } from "../../helpers/cookies";
 
-import { Row, Col, Card, Form, Input, Tag } from "antd";
+import { Row, Col, Form, Input } from "antd";
 import {
   PhoneOutlined,
   MailOutlined,
@@ -58,7 +54,6 @@ function CvDetail() {
 
   return (
     <>
-      <Goback />
       {cv ? (
         <Row>
           <Col style={{ marginTop: "20px", marginLeft: "10px" }} span={8}>

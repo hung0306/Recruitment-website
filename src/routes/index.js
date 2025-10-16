@@ -113,6 +113,10 @@ export const routes = [
             path: "/editCvUser/:id",
             element: <EditCvUser />,
           },
+          {
+            path: "/job-apply",
+            element: <JobApply />,
+          },
         ],
       },
     ],

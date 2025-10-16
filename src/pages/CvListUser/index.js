@@ -5,7 +5,6 @@ import { deleteCvUser, getListCvUser } from "../../services/cvService";
 import { getCookie } from "../../helpers/cookies";
 import "./CvListUser.scss";
 import { Link } from "react-router-dom";
-import Goback from "../../Components/Goback";
 
 function CvListUser() {
   const [cv, setCv] = useState([]);
@@ -49,7 +48,6 @@ function CvListUser() {
 
   return (
     <>
-      <Goback />
       {contextHolder}
 
       {cv.length > 0 ? (
@@ -107,11 +105,11 @@ function CvListUser() {
                         ></Button>
                       </Popconfirm>,
                     ]}
-                    title={[
+                    title={
                       <strong>
                         CV-{item.nameUser}-{item.jobPosition}
-                      </strong>,
-                    ]}
+                      </strong>
+                    }
                   >
                     <p className="cv-description">
                       Cập nhật lần cuối: {item.updateAt} <br />

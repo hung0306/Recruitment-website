@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Layout,
   Row,
@@ -25,7 +25,6 @@ import {
 import { getCookie } from "../../helpers/cookies";
 import { getDetailUser } from "../../services/userService";
 import { createCv } from "../../services/cvService";
-import Goback from "../../Components/Goback";
 import "./createCV.scss";
 
 const { Content } = Layout;
@@ -98,7 +97,6 @@ function CreateCV1() {
 
   return (
     <>
-      <Goback />
       <div className="container" style={{ padding: "24px" }}>
         {info ? (
           <Layout>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDetailJob } from "../../services/jobService";
 import { Tag } from "antd";
-import Goback from "../../Components/Goback";
+
 import "./jobdetail.scss";
 
 function JobDetailAdmin() {
@@ -19,7 +19,6 @@ function JobDetailAdmin() {
 
   return (
     <>
-      <Goback />
       {data && (
         <div className="job-detail">
           <header className="job-detail__header">

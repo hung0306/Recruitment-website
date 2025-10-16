@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { getAllJob } from "../../services/jobService";
 import { Tag } from "antd";
 import SearchList from "./SearchList";
-import Goback from "../../Components/Goback";
 
 function Search() {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -35,7 +34,6 @@ function Search() {
   // console.log(data);
   return (
     <>
-      <Goback />
       {loaded && (
         <div
           className="mb-30 mt-30"

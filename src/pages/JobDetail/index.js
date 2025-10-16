@@ -1,34 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Input,
-  Modal,
-  Row,
-  Select,
-  Spin,
-  Tag,
-  message,
-} from "antd";
+import { useNavigate, useParams } from "react-router-dom";
+import { Form, Modal, message } from "antd";
 import { getDetailJob } from "../../services/jobService";
 import { getDetailCompany } from "../../services/companyService";
-import { getTimeCurrent } from "../../helpers/getTime";
-import { createCv } from "../../services/cvService";
-import Goback from "../../Components/Goback";
-import CvListUser from "../CvListUser";
+
 import PickCv from "./PickCv";
 import { getCookie } from "../../helpers/cookies";
 import "./jobDetail.css";
 import { SendOutlined } from "@ant-design/icons";
 
-const { Option } = Select;
 // const [messageApi, contextHolder] = message.useMessage();
 
 function JobDetail() {
-  const [xoay, setXoay] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -99,7 +82,6 @@ function JobDetail() {
 
   return (
     <>
-      <Goback />
       {contextHolder}
       {job && (
         <>

@@ -16,7 +16,7 @@ import { getListTag } from "../../services/tagService";
 import { getListCity } from "../../services/cityService";
 import { getTimeCurrent } from "../../helpers/getTime";
 import { createJob } from "../../services/jobService";
-import Goback from "../../Components/Goback";
+
 const { Option } = Select;
 
 function CreateJob() {
@@ -65,7 +65,7 @@ function CreateJob() {
   return (
     <>
       {contextHolder}
-      <Goback />
+
       <Card className="mt-20" title="Tạo job mới">
         <Form
           layout="vertical"

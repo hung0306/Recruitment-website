@@ -4,7 +4,7 @@ import { getDetailCompany } from "../../services/companyService";
 import { getListJob } from "../../services/jobService";
 import { Card, Col, Row } from "antd";
 import Jobitem from "../../Components/Jobitem";
-import Goback from "../../Components/Goback";
+
 import "./CompanyDetail.scss";
 import {
   ClockCircleOutlined,
@@ -42,7 +42,6 @@ function CompanyDetail() {
 
   return (
     <>
-      <Goback />
       {infoCompany && (
         <>
           <div className="Title__company">

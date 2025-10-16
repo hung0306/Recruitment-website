@@ -5,14 +5,10 @@ import {
   Row,
   Col,
   Typography,
-  Card,
-  Avatar,
-  Divider,
   Form,
   Input,
   Button,
   message,
-  Upload,
 } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import {
@@ -21,25 +17,21 @@ import {
   PlusOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
-import { getCookie } from "../../helpers/cookies";
-import { getDetailUser } from "../../services/userService";
+
 import {
   editCvUser,
   getDetailCvUser,
   timeUpDateCv,
 } from "../../services/cvService";
 import { useParams } from "react-router-dom";
-import Goback from "../../Components/Goback";
+
 import { getTimeCurrent } from "../../helpers/getTime";
 
-const { Content } = Layout;
-const { Title } = Typography;
 const { TextArea } = Input;
 
 function EditCvUser() {
   const [form] = Form.useForm();
   const params = useParams();
-  const idUser = getCookie("id");
 
   const [info, setInfo] = useState();
 
@@ -70,7 +62,6 @@ function EditCvUser() {
 
   return (
     <>
-      <Goback />
       <div className="container" style={{ padding: "24px" }}>
         {info ? (
           <Form

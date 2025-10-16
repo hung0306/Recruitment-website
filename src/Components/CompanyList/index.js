@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCompany } from "../../services/companyService";
-import { Button, Card, Col, Row, Skeleton, Spin, Tag } from "antd";
+import { Button, Card, Col, Row, Skeleton, Tag } from "antd";
 import { Link } from "react-router-dom";
 import "./companyList.scss";
 import { getAllJob, getListJob } from "../../services/jobService";
@@ -33,55 +33,56 @@ function CompanyList() {
     <>
       <h2 className="listcompany">Nhà tuyển dụng hàng đầu</h2>
       <div className="container_company">
-        <Spin spinning={xoay} tip="vui lòng chờ...">
-          <div className="list">
-            {xoay ? (
-              <>
-                {[...Array(6)].map((_, index) => (
-                  <div className="listcompany__item" key={`skeleton-${index}`}>
-                    <div className="listcompany__row">
-                      <div>
-                        <Skeleton className="listcompany__img" />
+        <div className="list">
+          {xoay ? (
+            <>
+              {[...Array(6)].map((_, index) => (
+                <div className="listcompany__item" key={`skeleton-${index}`}>
+                  <div className="listcompany__row">
+                    <Skeleton
+                      active
+                      avatar={{ shape: "square", size: 72 }}
+                      title={{ width: "50%" }}
+                      paragraph={{ rows: 2, width: ["30%", "40%"] }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              {data.map((item) => (
+                <Link
+                  key={item.id}
+                  className="listcompany__item"
+                  style={{ color: "grey" }}
+                  to={`/company/${item.id}`}
+                >
+                  <div className="listcompany__row">
+                    <div>
+                      <img className="listcompany__img" src={item.website} />
+                    </div>
+                    <div>
+                      <div className="companyName">{item.companyName}</div>
+                      <div style={{ marginTop: 11, display: "flex" }}>
+                        <Tag color="default">Hà Nội</Tag>
+                        <Tag color="default">{item.salary}$/Tháng</Tag>
+                      </div>
+
+                      <div style={{ marginTop: "10px" }}>
+                        Hơn {item.quantityPeople} nhân sự{" "}
+                      </div>
+
+                      <div style={{ marginTop: "10px" }}>
+                        Cần tuyển thêm {item.quantityJob} nhân sự
                       </div>
                     </div>
                   </div>
-                ))}
-              </>
-            ) : (
-              <>
-                {data.map((item) => (
-                  <Link
-                    key={item.id}
-                    className="listcompany__item"
-                    style={{ color: "grey" }}
-                    to={`/company/${item.id}`}
-                  >
-                    <div className="listcompany__row">
-                      <div>
-                        <img className="listcompany__img" src={item.website} />
-                      </div>
-                      <div>
-                        <div className="companyName">{item.companyName}</div>
-                        <div style={{ marginTop: 11, display: "flex" }}>
-                          <Tag color="default">Hà Nội</Tag>
-                          <Tag color="default">{item.salary}$/Tháng</Tag>
-                        </div>
-
-                        <div style={{ marginTop: "10px" }}>
-                          Hơn {item.quantityPeople} nhân sự{" "}
-                        </div>
-
-                        <div style={{ marginTop: "10px" }}>
-                          Cần tuyển thêm {item.quantityJob} nhân sự
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </>
-            )}
-          </div>
-        </Spin>
+                </Link>
+              ))}
+            </>
+          )}
+        </div>
       </div>
 
       <Link to="/company">

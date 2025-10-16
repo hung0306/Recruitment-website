@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCookie } from "../../helpers/cookies";
-import { getDetailCv, getListCv } from "../../services/cvService";
+import { getListCv } from "../../services/cvService";
 import { Button, Table, Tooltip } from "antd";
 import { Tag } from "antd";
 import { Link } from "react-router-dom";

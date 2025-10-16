@@ -1,6 +1,11 @@
 import { Menu } from "antd";
 import { Link } from "react-router-dom";
-import { EditOutlined, UserAddOutlined, MenuOutlined } from "@ant-design/icons";
+import {
+  EditOutlined,
+  UserAddOutlined,
+  MenuOutlined,
+  HistoryOutlined,
+} from "@ant-design/icons";
 import { useState } from "react";
 import "./MenuIn4User.scss";
 
@@ -49,6 +54,16 @@ function MenuIn4User() {
             <Link to="/manager-Cv-user" onClick={handleClick}>
               <MenuOutlined style={{ color: "green", marginRight: "8px" }} />
               <span style={{ color: "black" }}>Quản lý CV của bạn</span>
+            </Link>
+          ),
+          type: "group",
+        },
+        {
+          key: "5",
+          label: (
+            <Link to="/job-apply" onClick={handleClick}>
+              <HistoryOutlined style={{ color: "green", marginRight: "8px" }} />
+              <span style={{ color: "black" }}>Lịch sử ứng tuyển</span>
             </Link>
           ),
           type: "group",

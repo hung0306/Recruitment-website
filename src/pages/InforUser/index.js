@@ -8,42 +8,33 @@ import {
   getSkill,
   getEducation,
   deleteEducation,
-  editEducation,
   deleteSkill,
   createSkill,
   createEducation,
-  editSkill,
   getExperience,
-  editExperience,
   deleteExperience,
   createExperience,
   getCourse,
   createCourse,
   deleteCourse,
-  editCourse,
   createCertificate,
   deleteCertificate,
-  editCertificate,
   getCertificate,
   createPrize,
   deletePrize,
-  editPrize,
   getPrize,
   createProject,
   deleteProject,
-  editProject,
   getProject,
   createProduct,
   deleteProduct,
-  editProduct,
   getProduct,
   createActivity,
   deleteActivity,
-  editActivity,
   getActivity,
 } from "../../services/userService";
 import "./InforUser.scss";
-import Goback from "../../Components/Goback";
+
 import SkillSection from "./sections/SkillSection";
 import EducationSection from "./sections/EducationSection";
 import ExperienceSection from "./sections/ExperienceSection";
@@ -740,7 +731,7 @@ function InforUser() {
   return (
     <>
       {contextHolder}
-      <Goback />
+
       <div className="container">
         {info && (
           <Spin spinning={xoay} tip="vui lòng chờ...">
@@ -822,12 +813,12 @@ function InforUser() {
                   skill={skill}
                   onShowModal={showModalSkill}
                   isModalOpen={isModalOpenSkill}
-                    onCancel={handleCancelSkill}
+                  onCancel={handleCancelSkill}
                   onDelete={handleDeleteSkill}
-                      onFinish={handleFinishSkill}
-                      form={formSkill}
-                              onReload={handleReload}
-                            />
+                  onFinish={handleFinishSkill}
+                  form={formSkill}
+                  onReload={handleReload}
+                />
               </Col>
 
               <Col span={24}>
@@ -835,12 +826,12 @@ function InforUser() {
                   education={education}
                   onShowModal={showModalEducation}
                   isModalOpen={isModalOpenEducation}
-                    onCancel={handleCancelEducation}
+                  onCancel={handleCancelEducation}
                   onDelete={handleDeleteEducation}
-                      onFinish={handleFinishEducation}
-                      form={formEducation}
-                              onReload={handleReload}
-                            />
+                  onFinish={handleFinishEducation}
+                  form={formEducation}
+                  onReload={handleReload}
+                />
               </Col>
 
               <Col span={24}>
@@ -848,10 +839,10 @@ function InforUser() {
                   experience={experience}
                   onShowModal={showModalExperience}
                   isModalOpen={isModalOpenExperience}
-                    onCancel={handleCancelExperience}
+                  onCancel={handleCancelExperience}
                   onDelete={handleDeleteExperience}
-                      onFinish={handleFinishExperience}
-                      form={formExperience}
+                  onFinish={handleFinishExperience}
+                  form={formExperience}
                   onReload={handleReload}
                 />
               </Col>
@@ -861,10 +852,10 @@ function InforUser() {
                   courses={courses}
                   onShowModal={showModalCourse}
                   isModalOpen={isModalOpenCourse}
-                    onCancel={handleCancelCourse}
+                  onCancel={handleCancelCourse}
                   onDelete={handleDeleteCourse}
-                      onFinish={handleFinishCourse}
-                      form={formCourse}
+                  onFinish={handleFinishCourse}
+                  form={formCourse}
                   onReload={handleReload}
                 />
               </Col>
@@ -874,10 +865,10 @@ function InforUser() {
                   certificates={certificates}
                   onShowModal={showModalCertificate}
                   isModalOpen={isModalOpenCertificate}
-                    onCancel={handleCancelCertificate}
+                  onCancel={handleCancelCertificate}
                   onDelete={handleDeleteCertificate}
-                      onFinish={handleFinishCertificate}
-                      form={formCertificate}
+                  onFinish={handleFinishCertificate}
+                  form={formCertificate}
                   onReload={handleReload}
                 />
               </Col>
@@ -887,22 +878,22 @@ function InforUser() {
                   prizes={prizes}
                   onShowModal={showModalPrize}
                   isModalOpen={isModalOpenPrize}
-                    onCancel={handleCancelPrize}
+                  onCancel={handleCancelPrize}
                   onDelete={handleDeletePrize}
-                      onFinish={handleFinishPrize}
-                      form={formPrize}
+                  onFinish={handleFinishPrize}
+                  form={formPrize}
                   onReload={handleReload}
                 />
-                        </Col>
-                        <Col span={24}>
+              </Col>
+              <Col span={24}>
                 <ProjectSection
                   projects={projects}
                   onShowModal={showModalProject}
                   isModalOpen={isModalOpenProject}
-                    onCancel={handleCancelProject}
+                  onCancel={handleCancelProject}
                   onDelete={handleDeleteProject}
-                      onFinish={handleFinishProject}
-                      form={formProject}
+                  onFinish={handleFinishProject}
+                  form={formProject}
                   onReload={handleReload}
                 />
               </Col>
@@ -912,10 +903,10 @@ function InforUser() {
                   products={products}
                   onShowModal={showModalProduct}
                   isModalOpen={isModalOpenProduct}
-                    onCancel={handleCancelProduct}
+                  onCancel={handleCancelProduct}
                   onDelete={handleDeleteProduct}
-                      onFinish={handleFinishProduct}
-                      form={formProduct}
+                  onFinish={handleFinishProduct}
+                  form={formProduct}
                   onReload={handleReload}
                 />
               </Col>
@@ -925,10 +916,10 @@ function InforUser() {
                   activities={activities}
                   onShowModal={showModalActivity}
                   isModalOpen={isModalOpenActivity}
-                    onCancel={handleCancelActivity}
+                  onCancel={handleCancelActivity}
                   onDelete={handleDeleteActivity}
-                      onFinish={handleFinishActivity}
-                      form={formActivity}
+                  onFinish={handleFinishActivity}
+                  form={formActivity}
                   onReload={handleReload}
                 />
               </Col>
