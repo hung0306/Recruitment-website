@@ -17,7 +17,7 @@ function Templatecv() {
 
       <Row gutter={[24, 24]}>
         <Col xs={24} md={12}>
-          <Link to="/create-CV1">
+          <Link to="/create-CV2">
             <Card hoverable className="template-card" title="Mẫu CV 1">
               <div className="template-card__preview placeholder-1" />
               <Typography.Text type="secondary">
@@ -27,7 +27,7 @@ function Templatecv() {
           </Link>
         </Col>
         <Col xs={24} md={12}>
-          <Link to="/create-CV2">
+          <Link to="/create-CV1">
             <Card hoverable className="template-card" title="Mẫu CV 2">
               <div className="template-card__preview placeholder-2" />
               <Typography.Text type="secondary">
