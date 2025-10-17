@@ -8,7 +8,7 @@ function Char() {
   useEffect(() => {
     const fetchApi = async () => {
       const response = await getListCv(idCompany);
-      console.log(response);
+      // console.log(response);
       if (response) {
         let obj = {
           total: 0,
@@ -34,7 +34,7 @@ function Char() {
     };
     fetchApi();
   }, []);
-  console.log("HI", datachart);
+  // console.log("HI", datachart);
 
   const config = {
     data: datachart,

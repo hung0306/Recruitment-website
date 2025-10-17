@@ -46,7 +46,7 @@ function Register() {
         id: result.id,
       };
       const result1 = await company.creatCompany1(valueCompany);
-      console.log(result1);
+      // console.log(result1);
 
       if (result) {
         setXoay(false);

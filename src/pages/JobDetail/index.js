@@ -32,39 +32,7 @@ function JobDetail() {
     };
     fetchAPI();
   }, []);
-  console.log(job);
-  // const onFinish = async (values) => {
-  //     setXoay(true)
-  //     // console.log(values);
-  //     // thêm key vào objec//
-  //     values.idJob = job.id;
-  //     values.idCompany = job.infoCompany.id;
-  //     values.createAt = getTimeCurrent();
-  //     const response = await createCv(values);
-
-  //     setTimeout(() => {
-  //         if (response) {
-  //             messageApi.open({
-  //                 type: 'success',
-  //                 content: 'Gửi CV thành công',
-  //                 duration: 3
-  //             });
-  //             setXoay(false)
-
-  //         } else {
-  //             messageApi.open({
-  //                 type: 'error',
-  //                 content: 'Gửi CV thất bại',
-  //                 duration: 3
-  //             });
-
-  //         }
-  //     }, 1000)
-  //     form.resetFields()
-  //     // alert("ok")
-  //     console.log(values);
-
-  // }
+  // console.log(job);
 
   const showModal = () => {
     const token = getCookie("token");

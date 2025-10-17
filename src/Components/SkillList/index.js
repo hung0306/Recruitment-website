@@ -16,7 +16,7 @@ function SkillList() {
     };
     fetchAPI();
   }, []);
-  console.log(tags);
+  // console.log(tags);
   return (
     <>
       <div className="skilllist-wrap">

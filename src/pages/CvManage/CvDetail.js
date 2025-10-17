@@ -50,7 +50,7 @@ function CvDetail() {
   // console.log("job",job);
   // console.log("cv",cv);
   // console.log(cv);
-  console.log(job);
+  // console.log(job);
 
   return (
     <>

@@ -50,13 +50,13 @@ function CreateCV1() {
     };
     fetchApi();
   }, [idUser]);
-  console.log(info);
+  // console.log(info);
 
   const onFinish = async (values) => {
     const data = { ...values, avatar: imageName, idUser: idUser };
 
     const result = await createCv(data);
-    console.log(result);
+    // console.log(result);
 
     if (result) {
       message.success("CV created successfully");

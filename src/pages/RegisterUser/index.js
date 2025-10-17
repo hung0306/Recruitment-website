@@ -25,7 +25,7 @@ function Register() {
       ...values,
       role: "user",
     };
-    console.log(newValue);
+    // console.log(newValue);
 
     const checkExistEmail = await company.checkExist("email", newValue.email);
     const checkExistPhone = await company.checkExist("phone", newValue.phone);

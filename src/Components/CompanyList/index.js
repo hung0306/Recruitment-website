@@ -28,7 +28,7 @@ function CompanyList() {
     fetchAPI();
   }, []);
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <h2 className="listcompany">Nhà tuyển dụng hàng đầu</h2>

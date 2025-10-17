@@ -32,7 +32,7 @@ function InforCompany() {
   useEffect(() => {
     fetchApi();
   }, []);
-  console.log(info);
+  // console.log(info);
 
   const handleFinish = async (values) => {
     setXoay(true);
@@ -57,7 +57,7 @@ function InforCompany() {
       setXoay(false);
       setIsEdit(false);
       // alert("ok")
-      console.log(values);
+      // console.log(values);
     } else {
       alert("ko");
     }

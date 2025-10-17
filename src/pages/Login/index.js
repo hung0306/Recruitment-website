@@ -18,7 +18,7 @@ function Login() {
   const onFinish = async (values) => {
     setXoay(true);
     const data = await company.login(values.email, values.password);
-    console.log(data);
+    // console.log(data);
 
     if (data.length > 0) {
       setXoay(false);

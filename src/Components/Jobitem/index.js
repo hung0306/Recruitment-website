@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import "./Jobitem.scss";
 
 function Jobitem({ item, hideApply = false }) {
-  console.log(item);
+  // console.log(item);
 
   // Kiểm tra nếu item không tồn tại hoặc không có status
   if (!item || !item.status) {

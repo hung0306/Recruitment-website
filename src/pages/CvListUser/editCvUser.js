@@ -49,7 +49,7 @@ function EditCvUser() {
   const onFinish = async (values) => {
     timeUpDateCv(params.id, { updateAt: getTimeCurrent() });
 
-    console.log(values);
+    // console.log(values);
 
     const result = await editCvUser(params.id, values);
 

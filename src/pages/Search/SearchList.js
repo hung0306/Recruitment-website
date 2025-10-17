@@ -6,7 +6,7 @@ import "./search.scss";
 
 function SearchList(props) {
   const { data = [] } = props;
-  console.log(data);
+  // console.log(data);
   const [dataFinal, setDataFinal] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -25,7 +25,7 @@ function SearchList(props) {
     };
     fetchAPI();
   }, [data]);
-  console.log(dataFinal);
+  // console.log(dataFinal);
 
   return (
     <>

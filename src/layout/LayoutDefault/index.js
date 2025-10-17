@@ -13,7 +13,7 @@ function LayoutDefault() {
   const user = getCookie("fullname");
   const role = getCookie("role");
   const islogin = useSelector((state) => state.loginReducer);
-  console.log(islogin);
+  // console.log(islogin);
 
   return (
     <>

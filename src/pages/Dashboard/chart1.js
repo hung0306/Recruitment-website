@@ -29,7 +29,7 @@ function Char1() {
     };
     fetchApi();
   }, []);
-  console.log("HIehe", datachart);
+  // console.log("HIehe", datachart);
 
   const config = {
     data: datachart,

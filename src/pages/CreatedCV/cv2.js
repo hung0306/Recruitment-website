@@ -52,7 +52,7 @@ function CreateCV2() {
       message.error("Failed to create CV");
     }
   };
-  console.log(info);
+  // console.log(info);
 
   return (
     <>

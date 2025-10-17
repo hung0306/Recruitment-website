@@ -57,10 +57,10 @@ function JobApply() {
             const job = jobs.find((j) => j.id === app.jobId);
             const company = companies.find((c) => c.id === job?.idCompany);
 
-            console.log("App:", app);
-            console.log("Job:", job);
-            console.log("Company:", company);
-            console.log("Company Logo:", company?.website);
+            // console.log("App:", app);
+            // console.log("Job:", job);
+            // console.log("Company:", company);
+            // console.log("Company Logo:", company?.website);
 
             return {
               ...app,

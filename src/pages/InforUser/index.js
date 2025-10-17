@@ -110,8 +110,8 @@ function InforUser() {
     };
     fetchApi();
   }, [reload]);
-  console.log(skill);
-  console.log(education);
+  // console.log(skill);
+  // console.log(education);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -258,7 +258,7 @@ function InforUser() {
       ...value,
       idUser: idUser,
     };
-    console.log(newValue);
+    // console.log(newValue);
 
     const response = await createEducation(newValue);
     if (response) {
@@ -287,7 +287,7 @@ function InforUser() {
       ...value,
       idUser: idUser,
     };
-    console.log(newValue);
+    // console.log(newValue);
 
     const response = await createSkill(newValue);
     if (response) {
@@ -334,7 +334,7 @@ function InforUser() {
       setXoay(false);
       setIsEdit(false);
       // alert("ok")
-      console.log(values);
+      // console.log(values);
     } else {
       alert("ko");
     }

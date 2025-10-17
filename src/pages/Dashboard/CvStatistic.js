@@ -11,7 +11,7 @@ function CvStatistic() {
   useEffect(() => {
     const fetchApi = async () => {
       const response = await getListCv(idCompany);
-      console.log(response);
+      // console.log(response);
       if (response) {
         let obj = {
           total: 0,
@@ -32,7 +32,7 @@ function CvStatistic() {
     };
     fetchApi();
   }, []);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>

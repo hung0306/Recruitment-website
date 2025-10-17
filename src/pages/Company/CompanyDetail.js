@@ -37,8 +37,8 @@ function CompanyDetail() {
     fetchAPI();
   }, []);
   // console.log(jobs);
-  console.log(infoCompany);
-  console.log(jobs);
+  // console.log(infoCompany);
+  // console.log(jobs);
 
   return (
     <>

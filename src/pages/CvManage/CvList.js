@@ -15,7 +15,7 @@ function CvList(props) {
 
   const fetchApi = async () => {
     const response = await getListCv(idCompany);
-    console.log(response);
+    // console.log(response);
 
     const cv = await fetch("http://localhost:3000/cv");
     const data = await cv.json();
@@ -34,7 +34,7 @@ function CvList(props) {
     fetchApi();
   }, [reload]);
 
-  console.log("hi", listCv);
+  // console.log("hi", listCv);
 
   const handleReload = () => {
     setReload(!reload);
@@ -94,7 +94,7 @@ function CvList(props) {
     },
   ];
 
-  console.log(listCv);
+  // console.log(listCv);
   return (
     <>
       <div
