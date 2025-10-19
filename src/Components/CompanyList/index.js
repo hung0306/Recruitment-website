@@ -3,7 +3,7 @@ import { getCompany } from "../../services/companyService";
 import { Button, Card, Col, Row, Skeleton, Tag } from "antd";
 import { Link } from "react-router-dom";
 import "./companyList.scss";
-import { getAllJob, getListJob } from "../../services/jobService";
+import { getAllJob } from "../../services/jobService";
 
 function CompanyList() {
   const [data, setData] = useState([]);
@@ -84,10 +84,6 @@ function CompanyList() {
           )}
         </div>
       </div>
-
-      <Link to="/company">
-        <Button type="primary">Xem thêm</Button>
-      </Link>
     </>
   );
 }
