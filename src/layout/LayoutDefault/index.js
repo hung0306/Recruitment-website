@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { getCookie } from "../../helpers/cookies";
 import "./layout.scss";
-import { Button, Col, Layout, Row } from "antd";
+import { Button, Layout } from "antd";
 import { Link, Outlet } from "react-router-dom";
-import MenuIn4User from "../../Components/MenuIn4User";
+import MenuInfoUser from "../../Components/MenuInfoUser";
 import Footer1 from "../../Components/Footer/footer";
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 
 function LayoutDefault() {
   const token = getCookie("token");
@@ -46,7 +46,7 @@ function LayoutDefault() {
                   )}
                   {role === "user" && (
                     <div className="site-header__menu">
-                      <MenuIn4User />
+                      <MenuInfoUser />
                     </div>
                   )}
                   <Link to="/logout" aria-label="Đăng xuất">

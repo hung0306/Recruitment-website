@@ -1,36 +1,38 @@
 import { Navigate } from "react-router-dom";
-import PrivateRouter from "../Components/PrivateRoutes";
+
+// Layout components
 import LayoutDefault from "../layout/LayoutDefault";
+import LayoutAdmin from "../layout/layoutAdmin";
 
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Logout from "../pages/Logout";
+// Private route component
+import PrivateRouter from "../Components/PrivateRoutes";
 
-import Register from "../pages/Register";
-import LayoutAdmin from "../layoutAdmin";
-import Search from "../pages/Search";
-import JobDetail from "../pages/JobDetail";
-import Company from "../pages/Company";
-import CompanyDetail from "../pages/Company/CompanyDetail";
-import Dashboard from "../pages/Dashboard";
-import InforCompany from "../pages/InfoCompany";
-import JobManage from "../pages/JobManage";
-import CreateJob from "../pages/JobManage/CreateJob";
-import JobDetailAdmin from "../pages/JobManage/JobDetailAdmin";
-import CvManage from "../pages/CvManage";
-import CvDetail from "../pages/CvManage/CvDetail";
-import RegisterUser from "../pages/RegisterUser";
-import Profile from "../pages/Profile";
-// import LayoutUser from "../layoutUser";
-import CreatedCV from "../pages/CreatedCV";
-import JobApply from "../pages/JobApply";
-import InforUser from "../pages/InforUser";
-import CvListUser from "../pages/CvListUser";
-import Templatecv from "../pages/CreatedCV/templatecv";
-import CreateCV1 from "../pages/CreatedCV/cv1";
+// User pages
+import Home from "../pages/User/Home";
+import Login from "../pages/User/Login";
+import RegisterUser from "../pages/User/RegisterUser";
+import Logout from "../pages/User/Logout";
+import JobDetail from "../pages/User/JobDetail";
+import Search from "../pages/User/Search";
+import Company from "../pages/User/Company";
+import CompanyDetail from "../pages/User/Company/CompanyDetail";
+import InforUser from "../pages/User/InforUser";
+import Templatecv from "../pages/User/CreatedCV/templatecv";
+import CreateCV1 from "../pages/User/CreatedCV/cv1";
+import CreateCV2 from "../pages/User/CreatedCV/cv2";
+import CvListUser from "../pages/User/CvListUser";
+import EditCvUser from "../pages/User/CvListUser/editCvUser";
+import JobApply from "../pages/User/JobApply";
 
-import EditCvUser from "../pages/CvListUser/editCvUser";
-import CreateCV2 from "../pages/CreatedCV/cv2";
+// Admin pages
+import Dashboard from "../pages/Admin/Dashboard";
+import InforCompany from "../pages/Admin/InfoCompany";
+import JobManage from "../pages/Admin/JobManage";
+import CreateJob from "../pages/Admin/JobManage/CreateJob";
+import JobDetailAdmin from "../pages/Admin/JobManage/JobDetailAdmin";
+import CvManage from "../pages/User/CvManage";
+import CvDetail from "../pages/User/CvManage/CvDetail";
+import Register from "../pages/Admin/Register";
 
 export const routes = [
   {

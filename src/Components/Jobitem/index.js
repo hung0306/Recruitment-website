@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Tag } from "antd";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import "./Jobitem.scss";
 
 function Jobitem({ item, hideApply = false }) {

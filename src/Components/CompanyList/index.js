@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCompany } from "../../services/companyService";
-import { Button, Card, Col, Row, Skeleton, Tag } from "antd";
+import { Skeleton, Tag } from "antd";
 import { Link } from "react-router-dom";
 import "./companyList.scss";
 import { getAllJob } from "../../services/jobService";
